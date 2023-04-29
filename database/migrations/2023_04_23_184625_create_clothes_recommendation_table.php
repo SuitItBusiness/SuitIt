@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('clothes_recommendation', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('clothes_id')->references('id')->on('clothess');
+            $table->foreignId('clothes_id')->references('id')->on('clothes');
             $table->foreignId('recommendation_id')->references('id')->on('recommendations');
         });
     }

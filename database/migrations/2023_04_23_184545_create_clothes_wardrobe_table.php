@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('uses_number');
             $table->integer('quantity')->default(1);
-            $table->foreignId('clothes_id')->references('id')->on('clothess');
-            $table->foreignId('wardrobre_id')->references('id')->on('wardrobres');
+            $table->foreignId('clothes_id')->references('id')->on('clothes');
+            $table->foreignId('wardrobe_id')->references('id')->on('wardrobes');
             $table->timestamps();
         });
     }
