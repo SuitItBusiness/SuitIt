@@ -1,0 +1,121 @@
+.colorPropio{
+    color: rgb(94, 15, 167);
+}
+
+.colorText{
+    text-decoration:rgb(94, 15, 167); ;
+}
+.bgpropio{
+    background: rgba(95,2,141,0.75);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    border: 1px solid rgba(95,2,141,0.375);
+}
+.card{
+    border: none;
+}
+
+.gradient-custom {
+
+    background: #7b70d6;
+
+    }
+
+
+    .zoom {
+        transition: transform .4s;
+    }
+
+    .zoom:hover {
+        transform: scale(1.1);
+    }
+
+    .bigicon {
+        color:white;
+    }
+
+    .mix{
+        min-height:370px;
+    }
+
+    ul.dropdown-cart{
+        min-width:250px;
+        border: 2px solid #343434;
+        padding: 2px;
+        margin: 7px;
+        margin-top: 11px;
+    }
+    ul.dropdown-cart li .item{
+        display:block;
+        padding:3px 10px;
+        margin: 3px 0;
+
+    }
+    ul.dropdown-cart li .item:hover{
+        background-color:#c3c5c5;
+
+    }
+    ul.dropdown-cart li .item:after{
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+
+    ul.dropdown-cart li .item-left{
+        float:left;
+    }
+    ul.dropdown-cart li .item-left img,
+    ul.dropdown-cart li .item-left span.item-info{
+        float:left;
+    }
+    ul.dropdown-cart li .item-left span.item-info{
+        margin-left:10px;
+    }
+    ul.dropdown-cart li .item-left span.item-info span{
+        display:block;
+    }
+    ul.dropdown-cart li .item-right{
+        float:right;
+    }
+    ul.dropdown-cart li .item-right button{
+        margin-top:14px;
+    }
+
+.notify{
+    margin-top: 150px;
+}
+/* ?Cambio de color de paginate y mod */
+.pagination li {
+    margin-left: .25rem;
+    margin-right: .25rem;
+  }
+
+  .pagination li .page-link {
+    border-radius: .25rem;
+    border: none;
+    min-width: 2.25rem;
+    text-align: center;
+    color: #4f5464;
+  }
+
+  .pagination li.active .page-link,
+  .pagination li .page-link:hover {
+    background-color: rgb(94, 15, 167);
+    color: #fff;
+    font-weight: bold;
+  }
+
+/* span{
+    font-size: 11px;
+} */
+
+/*
+@media (min-width: 768px)
+{
+    .notify{
+        margin-top: 90px;
+    }
+} */

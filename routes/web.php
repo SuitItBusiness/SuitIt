@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/admin', function () {
+    return view('table');
+});
+
+
 // Account routes
 Route::prefix('account')->middleware('verified')->group(function () {
     Route::get('/', 'AccountController@index')->name('account');
@@ -28,7 +33,7 @@ Route::prefix('account')->middleware('verified')->group(function () {
 
 // Admin routes
 Route::prefix('admin')->middleware('admin')->group(function () {
-
+    
     # Users
     Route::get('/users', 'AdminController@indexUsers')->name('admin.users');
     Route::get('/users/new', 'AdminController@createUser')->name('admin.users.new');
