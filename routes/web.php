@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ClothesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // Index routes
 
-Route::get('/', [ ClothesController::class,'showClothes']);
-
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [ClothesController::class,'showClothes'])->name('index');
 
 
 
