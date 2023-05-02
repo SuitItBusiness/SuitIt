@@ -90,6 +90,15 @@ class AdminController extends Controller
         return redirect()->route('admin.users', $id)->with('success', __('Settings saved.'));
     }
 
+
+    public function indexClothes()
+    {
+
+        $clothes = Clothes::all();
+        
+        return view('admin', ['view' => 'admin.table', 'clothes' => $clothes]);
+    }
+
     public function editClothes($id)
     {
         $clothes = Clothes::withTrashed()

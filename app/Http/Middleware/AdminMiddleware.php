@@ -2,8 +2,13 @@
 
 namespace App\Http\Middleware;
 
+
+namespace App\Http\Middleware;
+
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\Request;
+
 
 class AdminMiddleware
 {
@@ -24,13 +29,15 @@ class AdminMiddleware
      * @param  \Closure $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+
+    public function handle(Request $request, Closure $next)
     {
-        // If the user is a guest, or doesn't have permissions
-        if ($this->auth->guest() || $this->auth->user()->role != 'admin') {
-            return redirect()->route('home');
+        // Check if user is an admin
+        if (auth()->check() && auth()->user()->isAdmin()) {
+        
+            return $next($request);
         }
 
-        return $next($request);
+        return redirect('/')->with('error', 'You are not authorized to access this page.');
     }
 }
