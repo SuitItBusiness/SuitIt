@@ -113,6 +113,7 @@
                       </li>
                     </ul>
 
+
                     <div class="container">
                       <div class="row">
 
@@ -124,6 +125,7 @@
                                 <div class="card-body ps-0 bg-200">
                                     <h5 class="fw-bold text-1000 text-truncate">{{ $clo->name }}</h5>
                                     <p class="fw-bold">{{ $clo->brand }} - {{ $clo->color }}</p>
+
                                 </div>
                                 <a class="stretched-link" href="#"></a>
                             </div>

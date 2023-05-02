@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriesController;
+
 use App\Http\Controllers\ClothesController;
 
 /*
@@ -19,7 +20,14 @@ use App\Http\Controllers\ClothesController;
 
 Route::get('/', [ClothesController::class,'showClothes'])->name('index');
 
+Route::get('/index', [ ClothesController::class,'showClothes']);
 
+
+
+
+
+
+////////////////////////////////////
 
 
 Route::get('/admin', function () {
