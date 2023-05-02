@@ -35,11 +35,11 @@
                         @foreach ($clothes as $product)
                         <tr>
                             <td>{{ $product->id }}</td>
-                            <td>{{ $product->name }}</td>
+                            {{-- <td>{{ $product->name }}</td> --}}
                             <td>{{ $product->price }}</td>
-                            <td>{{ $product->stock }}</td>
-                            <td>{{ $product->category }}</td>
-                            <td><a href="{{ route('admin.editar', $product->id) }}"
+                            {{-- <td>{{ $product->stock }}</td> --}}
+                            {{-- <td>{{ $product->category }}</td> --}}
+                            {{-- <td><a href="{{ route('admin.editar', $product->id) }}"
                                     class="row justify-content-center"><button class="btn btn-primary" type="submit"><i
                                             class="bi bi-pencil"></i></button></a></td>
                             <td>
@@ -48,7 +48,7 @@
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-danger" type="submit"><i class="bi bi-trash"></i></button>
-                                </form>
+                                </form> --}}
                             </td>
                         </tr>
                     @endforeach

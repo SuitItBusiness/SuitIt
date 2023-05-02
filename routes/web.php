@@ -44,13 +44,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/users/{id}/restore', 'AdminController@restoreUser')->name('admin.users.restore');
 
     # Clothes
-    Route::get('/clothes', 'AdminController@indexClothes')->name('admin.clothes');
-    Route::get('/clothes/new', 'AdminController@createClothes')->name('admin.clothes.new');
-    Route::get('/clothes/{id}/edit', 'AdminController@editClothes')->name('admin.clothes.edit');
+    Route::get('/clothes', 'AdminController@indexClothes')->name('admin.table');
+    Route::get('/clothes/new', 'AdminController@createClothes')->name('admin.table.new');
+    Route::get('/clothes/{id}/edit', 'AdminController@editClothes')->name('admin.table.edit');
     Route::post('/clothes/{id}/edit', 'AdminController@updateClothes');
-    Route::post('/clothes/{id}/destroy', 'AdminController@destroyClothes')->name('admin.clothes.destroy');
-    Route::get('/clothes/{id}/disable', 'AdminController@disableClothes')->name('admin.clothes.disable');
-    Route::get('/clothes/{id}/restore', 'AdminController@restoreClothes')->name('admin.clothes.restore');
+    Route::post('/clothes/{id}/destroy', 'AdminController@destroyClothes')->name('admin.table.destroy');
+    Route::get('/clothes/{id}/disable', 'AdminController@disableClothes')->name('admin.table.disable');
+    Route::get('/clothes/{id}/restore', 'AdminController@restoreClothes')->name('admin.table.restore');
     
 
     # Categories
