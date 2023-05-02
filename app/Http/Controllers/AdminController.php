@@ -90,32 +90,6 @@ class AdminController extends Controller
         return redirect()->route('admin.users', $id)->with('success', __('Settings saved.'));
     }
 
-    public function indexClothes(Request $request)
-    {
-        $search = $request->input('search');
-        $searchBy = in_array($request->input('search_by'), ['name', 'description']) ? $request->input('search_by') : 'name';
-        $category = $request->input('category');
-        $sortBy = in_array($request->input('sort_by'), ['id', 'name', 'description']) ? $request->input('sort_by') : 'id';
-        $sort = in_array($request->input('sort'), ['asc', 'desc']) ? $request->input('sort') : 'desc';
-        $perPage = in_array($request->input('per_page'), [10, 25, 50, 100]) ? $request->input('per_page') : config('settings.paginate');
-
-        $clothes = Clothes::withTrashed()
-            ->when($search, function ($query) use ($search, $searchBy) {
-                if ($searchBy == 'description') {
-                    return $query->searchDescription($search);
-                }
-                return $query->searchName($search);
-            })
-            ->when(isset($category) && is_numeric($category), function ($query) use ($category) {
-                return $query->ofCategory($category);
-            })
-            ->orderBy($sortBy, $sort)
-            ->paginate($perPage)
-            ->appends(['search' => $search, 'search_by' => $searchBy, 'category' => $category, 'sort_by' => $sortBy, 'sort' => $sort, 'per_page' => $perPage]);
-
-        return view('admin.container', ['view' => 'admin.clothes.list', 'clothes' => $clothes]);
-    }
-
     public function editClothes($id)
     {
         $clothes = Clothes::withTrashed()
