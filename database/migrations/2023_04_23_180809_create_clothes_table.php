@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('clothes', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('color');
             $table->string('brand');
             $table->enum('season', ['spring', 'summer', 'fall', 'winter']);

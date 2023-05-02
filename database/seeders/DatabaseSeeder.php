@@ -73,6 +73,7 @@ class DatabaseSeeder extends Seeder
 
         $clothes = [
             [
+                'name' => 'Camiseta Nike',
                 'color' => 'red',
                 'brand' => 'Nike',
                 'season' => 'spring',
@@ -82,6 +83,7 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 1,
             ],
             [
+                'name' => 'Pantalón Adidas',
                 'color' => 'black',
                 'brand' => 'Adidas',
                 'season' => 'summer',
@@ -91,6 +93,7 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 2,
             ],
             [
+                'name' => 'Calzonas Puma',
                 'color' => 'white',
                 'brand' => 'Puma',
                 'season' => 'summer',
@@ -100,6 +103,7 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 4,
             ],
             [
+                'name' => 'Pantalón Levi',
                 'color' => 'blue',
                 'brand' => 'Levi\'s',
                 'season' => 'fall',
@@ -109,6 +113,7 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 2,
             ],
             [
+                'name' => 'Converse',
                 'color' => 'black',
                 'brand' => 'Converse',
                 'season' => 'spring',
@@ -118,6 +123,7 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 5,
             ],
             [
+                'name' => 'Camisa gris',
                 'color' => 'gray',
                 'brand' => 'H&M',
                 'season' => 'winter',
@@ -127,6 +133,7 @@ class DatabaseSeeder extends Seeder
                 'category_id' => 3,
             ],
             [
+                'name' => 'Vans Classic Verde',
                 'color' => 'green',
                 'brand' => 'Vans',
                 'season' => 'summer',
