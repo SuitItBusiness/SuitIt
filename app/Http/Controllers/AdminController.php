@@ -90,6 +90,7 @@ class AdminController extends Controller
         return redirect()->route('admin.users', $id)->with('success', __('Settings saved.'));
     }
 
+
     public function indexClothes()
     {
 

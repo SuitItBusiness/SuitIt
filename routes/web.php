@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Index routes
+
+Route::get('/', [ ClothesController::class,'showClothes']);
+
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
+
+
 
 
 Route::get('/admin', function () {
