@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Clothes;
 use Illuminate\Http\Request;
-use App\Models\Clothes;
 
 class ClothesController extends Controller
 {
@@ -17,4 +16,7 @@ class ClothesController extends Controller
     }
 }
  ?>
+
+
+
 
