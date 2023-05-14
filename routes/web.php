@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriesController;
-
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ClothesController;
 
 /*
@@ -26,12 +26,14 @@ Route::get('/index', [ ClothesController::class,'showClothes']);
 //Login y Register routes
 
 Route::get('/login', function () {
-    return view('login');
-    });
+    return view('auth.login');
+    })->name('login');
 
-    Route::get('/register', function () {
-        return view('register');
-        });
+Route::get('/register', function () {
+    return view('auth.register');
+    })->name('register');
+
+// Route::post("/register", [UsersController::class, "create"])->name("user.create");
 
 ////////////////////////////////////
 

@@ -62,24 +62,26 @@
           <div class="container">
             <div class="row">
               <div class="col-md-6 offset-md-3">
-                <form>
+                <form id="registerForm" action="{{ route('register') }}" method="POST">
+                  @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
+
                   <img class="mb-4" src="assets/img/gallery/logo_login2.png" width="200">
                   <h1 class="h3 mb-3 fw-normal">Registrarse</h1>
                   <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="" name="name">
                     <label for="floatingInput">Nombre<span class="text-danger">*</span></label>
                   </div>
                   <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="" name="surname">
                     <label for="floatingInput">Apellidos<span class="text-danger">*</span></label>
                   </div>
                   <div class="form-floating mb-2">
-                    <input type="date" class="form-control" id="floatingInput" placeholder="">
+                    <input type="date" class="form-control" id="floatingInput" placeholder="" name="birthdate">
                     <label for="floatingInput">Fecha de nacimiento<span class="text-danger">*</span></label>
                   </div>
 
                   <div class="form-floating mb-2">
-                    <select class="form-select" id="way_type" aria-label="Tipo de vía" name="way_type" required>
+                    <select class="form-select" id="occupation" aria-label="occupation" name="occupation" required>
                         <option disabled selected> </option>
                         <option value="worker">
                             Trabajador
@@ -91,21 +93,21 @@
                             Otro
                         </option>
                     </select>
-                    <label for="way_type">Ocupación<span class="text-danger">*</span></label>
+                    <label for="occupation">Ocupación<span class="text-danger">*</span></label>
                   </div>
                   <div class="form-floating mb-2">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="" name="email">
                     <label for="floatingInput">Correo electronico<span class="text-danger">*</span></label>
                   </div>
                   <div class="form-floating mb-2">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="" name="password">
                     <label for="floatingPassword">Contraseña<span class="text-danger">*</span></label>
                   </div>
                   <div class="form-floating mb-2">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="" name="password_confirmation">
                     <label for="floatingPassword">Confirmar contraseña<span class="text-danger">*</span></label>
                   </div>
-                  <button class="w-100 btn btn-lg btn-primary" type="button">Registrarse</button>
+                  <button class="w-100 btn btn-lg btn-primary" type="submit">Registrarse</button>
                 </form>
               </div>
             </div>

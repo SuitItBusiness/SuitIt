@@ -62,16 +62,18 @@
           <div class="container">
             <div class="row">
               <div class="col-md-6 offset-md-3">
-                <form>
+                <form id="loginForm" action="" method="POST">
+                  @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
+
                   <img class="mb-4" src="assets/img/gallery/logo_login2.png" width="200">
                   <h1 class="h3 mb-3 fw-normal">Inicio de sesión</h1>
       
                   <div class="form-floating mb-2">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="" name='email'>
                     <label for="floatingInput">Correo electronico</label>
                   </div>
                   <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="" name='password'>
                     <label for="floatingPassword">Contraseña</label>
                   </div>
       
@@ -80,7 +82,7 @@
                       <input type="checkbox" value="remember-me"> Recuerdame
                     </label>
                   </div>
-                  <button class="w-100 btn btn-lg btn-primary" type="button">Iniciar Sesión</button>
+                  <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar Sesión</button>
                   <p class="mt-5 mb-3 text-muted">
                     <a id="forgot-password" href="/register">Registrate aquí</a>
                   </p>
