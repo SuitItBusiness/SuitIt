@@ -23,9 +23,15 @@ Route::get('/', [ClothesController::class,'showClothes'])->name('index');
 Route::get('/index', [ ClothesController::class,'showClothes']);
 
 
+//Login y Register routes
 
+Route::get('/login', function () {
+    return view('login');
+    });
 
-
+    Route::get('/register', function () {
+        return view('register');
+        });
 
 ////////////////////////////////////
 
