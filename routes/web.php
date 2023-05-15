@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ClothesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +16,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Index routes
+
+Route::get('/', [ClothesController::class,'showClothes'])->name('index');
+
+Route::get('/index', [ ClothesController::class,'showClothes']);
+
+
+//Login y Register routes
+
+Route::get('/login', function () {
+    return view('auth.login');
+    })->name('login');
+
+Route::get('/register', function () {
+    return view('auth.register');
+    })->name('register');
+
+// Route::post("/register", [UsersController::class, "create"])->name("user.create");
+
+////////////////////////////////////
+
+
+Route::get('/admin', function () {
+return view('admin.table');
+
+
 
 // Account routes
 Route::prefix('account')->middleware('verified')->group(function () {
@@ -28,7 +54,6 @@ Route::prefix('account')->middleware('verified')->group(function () {
 
 // Admin routes
 Route::prefix('admin')->middleware('admin')->group(function () {
-
     # Users
     Route::get('/users', 'AdminController@indexUsers')->name('admin.users');
     Route::get('/users/new', 'AdminController@createUser')->name('admin.users.new');
@@ -39,13 +64,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/users/{id}/restore', 'AdminController@restoreUser')->name('admin.users.restore');
 
     # Clothes
-    Route::get('/clothes', 'AdminController@indexClothes')->name('admin.clothes');
-    Route::get('/clothes/new', 'AdminController@createClothes')->name('admin.clothes.new');
-    Route::get('/clothes/{id}/edit', 'AdminController@editClothes')->name('admin.clothes.edit');
+    Route::get('/', 'AdminController@indexClothes')->name('admin.table');
+    Route::get('/clothes/new', 'AdminController@createClothes')->name('admin.table.new');
+    Route::get('/clothes/{id}/edit', 'AdminController@editClothes')->name('admin.table.edit');
     Route::post('/clothes/{id}/edit', 'AdminController@updateClothes');
-    Route::post('/clothes/{id}/destroy', 'AdminController@destroyClothes')->name('admin.clothes.destroy');
-    Route::get('/clothes/{id}/disable', 'AdminController@disableClothes')->name('admin.clothes.disable');
-    Route::get('/clothes/{id}/restore', 'AdminController@restoreClothes')->name('admin.clothes.restore');
+    Route::post('/clothes/{id}/destroy', 'AdminController@destroyClothes')->name('admin.table.destroy');
+    Route::get('/clothes/{id}/disable', 'AdminController@disableClothes')->name('admin.table.disable');
+    Route::get('/clothes/{id}/restore', 'AdminController@restoreClothes')->name('admin.table.restore');
     
 
     # Categories

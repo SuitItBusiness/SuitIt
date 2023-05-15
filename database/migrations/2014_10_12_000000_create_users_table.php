@@ -17,10 +17,11 @@ return new class extends Migration
             $table->string('surname');
             $table->date('birthdate');
             $table->enum('occupation',['worker','student','other']);
-            $table->string('personality');
+            $table->string('personality')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('role',['admin','user'])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
