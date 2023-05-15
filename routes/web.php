@@ -35,11 +35,10 @@ Route::get('/register', function () {
 
 // Route::post("/register", [UsersController::class, "create"])->name("user.create");
 
-////////////////////////////////////
-
 
 Route::get('/admin', function () {
 return view('admin.table');
+});
 
 
 
