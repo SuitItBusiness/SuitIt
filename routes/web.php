@@ -40,7 +40,7 @@ Route::get('/register', function () {
 
 Route::get('/admin', function () {
 return view('admin.table');
-});
+
 
 
 // Account routes

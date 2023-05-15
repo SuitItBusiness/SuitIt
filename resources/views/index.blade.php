@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
 
+
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,6 +33,7 @@
     <!--    Stylesheets-->
     <!-- ===============================================-->
     <link href="assets/css/theme.css" rel="stylesheet" />
+
     <link href="assets/css/custom.css" rel="stylesheet" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -38,6 +41,7 @@
 
 
 <body>
+
 
     <!-- ===============================================-->
     <!--    Main Content-->
@@ -391,6 +395,7 @@
         <!-- ============================================-->
 
 
+
     </main>
     <!-- ===============================================-->
     <!--    End of Main Content-->
@@ -402,6 +407,7 @@
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
+
     <script src="assets/vendors/@popperjs/popper.min.js"></script>
     <script src="assets\js\custom.js"></script>
     <script src="assets/vendors/bootstrap/bootstrap.min.js"></script>
@@ -418,3 +424,4 @@
 </body>
 
 </html>
+
