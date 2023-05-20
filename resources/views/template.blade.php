@@ -48,9 +48,9 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800;900&amp;display=swap"
             rel="stylesheet">
-            
-            <script defer src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-            <script defer src='https://kenwheeler.github.io/slick/slick/slick.js'></script>
+
+        <script defer src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+        <script defer src='https://kenwheeler.github.io/slick/slick/slick.js'></script>
 
     </head>
 @endsection
@@ -58,20 +58,32 @@
 
 @section('nav')
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-        <div class="container"><a class="navbar-brand d-inline-flex" href="index.html"><img class="d-inline-block"
-                    src="assets/img/gallery/logo.png" alt="logo" /><span
-                    class="text-1000 fs-0 fw-bold ms-2">SUITIT</span></a>
+        <div class="container">
+            <a class="navbar-brand d-inline-flex" href="index.html">
+                <img class="d-inline-block" src="assets/img/gallery/logo.png" alt="logo" />
+                <span class="text-1000 fs-0 fw-bold ms-2">SUITIT</span>
+            </a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page"
-                            href="#categoryWomen">Armario</a></li>
-                    <li class="nav-item px-2"><a class="nav-link fw-medium" href="#header">Temporadas</a></li>
-                    <li class="nav-item px-2"><a class="nav-link fw-medium" href="#collection">Colecciones</a></li>
-                    <li class="nav-item px-2"><a class="nav-link fw-medium" href="#outlet">Looks</a></li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link fw-medium active" aria-current="page" href="#categoryWomen">Armario</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link fw-medium" href="#header">Temporadas</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link fw-medium" href="#collection">Colecciones</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link fw-medium" href="#outlet">Looks</a>
+                    </li>
                 </ul>
+
                 <form class="d-flex"><a class="text-1000" href="#!">
                         <svg class="feather feather-phone me-3" xmlns="http://www.w3.org/2000/svg" width="16"
                             height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -86,108 +98,31 @@
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg></a><a class="text-1000" href="#!">
-                        <svg class="feather feather-user me-3" xmlns="http://www.w3.org/2000/svg" width="16"
-                            height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg></a><a class="text-1000" href="#!">
-                        <svg class="feather feather-heart me-3" xmlns="http://www.w3.org/2000/svg" width="16"
-                            height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                            </path>
-                        </svg></a></form>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle text-1000" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <svg class="feather feather-user me-3" xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg></a><a class="text-1000" href="#!">
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                    <li class="nav-item"><a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                </li>
+                                <form id="logout-form" name="logout-form" action="{{ route('logout') }}"
+                                    method="POST" class="d-none">
+                                    @csrf
+                                    {{ csrf_field() }}
+                                </form>
+                                </ul>
+                                <span>{{ auth()->user()->name }}</span>
+                            </div>
+                    </a>
+                </form>
             </div>
         </div>
     </nav>
 @endsection
-
-{{-- @section('footer')
-    <footer class="bg-dark" id="tempaltemo_footer">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-white  border-bottom pb-3 border-light logo">Jauz Shop</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li>
-                            <i class="fas fa-map-marker-alt fa-fw"></i>
-                            calle del viento
-                        </li>
-                        <li>
-                            <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">95-472-xx-xx</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="jauzcosmetics@gmail.com">jauzcosmetics@gmail.com</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="{{ route('maquillaje') }}">Maquillaje</a></li>
-                        <li><a class="text-decoration-none"href="{{ route('accesorio') }}">Accesorios</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">+Info</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Home</a></li>
-                        <li><a class="text-decoration-none" href="/about">Sobre nosotros</a></li>
-                        <li><a class="text-decoration-none" href="/contact">Contacto</a></li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="row text-light mb-4">
-                <div class="col-12 mb-3">
-                    <div class="w-100 my-3 border-top border-light"></div>
-                </div>
-                <div class="col-auto me-auto">
-                    <ul class="list-inline text-left footer-icons">
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i
-                                    class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank"
-                                href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i
-                                    class="fab fa-twitter fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank"
-                                href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="w-100 bg-black py-3 text-center">
-            <div class="container">
-                <div class="row pt-2">
-                    <div class="col-12">
-                        <p class="text-left text-light">
-                            Copyright &copy; 2023 Jauz Company
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
-                <img alt="Licencia de Creative Commons" style="border-width:0"
-                    src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
-            </a>
-        </div>
-    </footer>
-@endsection --}}
