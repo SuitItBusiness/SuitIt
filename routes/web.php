@@ -18,9 +18,7 @@ use App\Http\Controllers\ClothesController;
 
 // Index routes
 
-// Route::get('/', [ClothesController::class,'showClothes']);
-
-Route::get('/index', [ ClothesController::class,'showClothes'])->name('index');
+Route::get('/', [ ClothesController::class,'showClothes'])->name('index')->middleware('auth');
 
 
 //Login y Register routes
