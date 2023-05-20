@@ -65,6 +65,9 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
 
+                        <img class="mb-4" src="assets/img/gallery/logo_login2.png" width="200">
+                        <h1 class="h3 mb-3 fw-normal">Inicio de sesión</h1>
+                        
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -78,17 +81,14 @@
                         <form id="loginForm" action="" method="POST">
                             @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
 
-                            <img class="mb-4" src="assets/img/gallery/logo_login2.png" width="200">
-                            <h1 class="h3 mb-3 fw-normal">Inicio de sesión</h1>
-
                             <div class="form-floating mb-2">
                                 <input type="email" class="form-control" id="floatingInput" placeholder=""
-                                    name='email'>
+                                    name='email' required>
                                 <label for="floatingInput">Correo electronico</label>
                             </div>
                             <div class="form-floating">
                                 <input type="password" class="form-control" id="floatingPassword" placeholder=""
-                                    name='password'>
+                                    name='password' required>
                                 <label for="floatingPassword">Contraseña</label>
                             </div>
 

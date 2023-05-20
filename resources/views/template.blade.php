@@ -72,6 +72,34 @@
                     <li class="nav-item px-2"><a class="nav-link fw-medium" href="#collection">Colecciones</a></li>
                     <li class="nav-item px-2"><a class="nav-link fw-medium" href="#outlet">Looks</a></li>
                 </ul>
+                @auth
+                            <li class="nav-item dropdown d-flex mx-md-5">
+                                <a class="nav-link dropdown-toggle text-primary text-hover-white" href="#"
+                                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i>
+                                    {{ Auth::user()->name }}</a>
+                                <ul class="dropdown-menu products-open">
+                                    @if (Auth::user()->role == 'admin')
+                                        <li>
+                                            <a class="dropdown-item px-2 text-hover-white" href="{{ route('admin.users') }}"><i
+                                                    class="bi bi-gear-fill"></i> Panel de administración</a>
+                                        </li>
+                                    @elseif (Auth::user()->role == 'client')
+                                        <li>
+                                            <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
+                                                    class="bi bi-person-circle"></i> Panel de usuario</a>
+                                        </li>
+                                    @endif
+                                    <li>
+                                        <a class="dropdown-item px-2 text-hover-white" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('formLogout').submit();"><i
+                                                class="bi bi-x-square-fill"></i> {{ __('Logout') }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <form action="{{ route('logout') }}" method="POST" id="formLogout">
+                                @csrf
+                            </form>
+                        @endauth
                 <form class="d-flex"><a class="text-1000" href="#!">
                         <svg class="feather feather-phone me-3" xmlns="http://www.w3.org/2000/svg" width="16"
                             height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

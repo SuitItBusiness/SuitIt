@@ -25,11 +25,11 @@ Route::get('/', [ ClothesController::class,'showClothes'])->name('index')->middl
 
 Route::get('/login', function () {
     return view('auth.login');
-    })->name('login');
+    })->name('login')->middleware('guest');
 
 Route::get('/register', function () {
     return view('auth.register');
-    })->name('register');
+    })->name('register')->middleware('guest');;
 
 // Route::post("/register", [UsersController::class, "create"])->name("user.create");
 
