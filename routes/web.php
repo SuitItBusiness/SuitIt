@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ClothesController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,11 +30,7 @@ Route::get('/login', function () {
 
 Route::get('/register', function () {
     return view('auth.register');
-    })->name('register')->middleware('guest');;
-
-Route::get('/admin', function () {
-return view('admin.table');
-});
+    })->name('register')->middleware('guest');
 
 // Account routes
 Route::prefix('account')->middleware('verified')->group(function () {
@@ -46,6 +43,11 @@ Route::prefix('account')->middleware('verified')->group(function () {
 
 // Admin routes
 Route::prefix('admin')->middleware('admin')->group(function () {
+
+    // Route::get('/', function () {
+    //     return view('admin.table');
+    // });
+    
     # Users
     Route::get('/users', 'AdminController@indexUsers')->name('admin.users');
     Route::get('/users/new', 'AdminController@createUser')->name('admin.users.new');
@@ -56,7 +58,9 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/users/{id}/restore', 'AdminController@restoreUser')->name('admin.users.restore');
 
     # Clothes
-    Route::get('/', 'AdminController@indexClothes')->name('admin.table');
+    // Route::get('/', 'AdminController@indexClothes')->name('admin.table');
+    Route::get('/', [AdminController::class, 'indexClothes']);
+
     Route::get('/clothes/new', 'AdminController@createClothes')->name('admin.table.new');
     Route::get('/clothes/{id}/edit', 'AdminController@editClothes')->name('admin.table.edit');
     Route::post('/clothes/{id}/edit', 'AdminController@updateClothes');
