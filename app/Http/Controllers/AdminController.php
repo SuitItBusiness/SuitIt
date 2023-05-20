@@ -1,9 +1,12 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Clothes;
 use App\Models\User;
+
 
 class AdminController extends Controller
 {
@@ -96,7 +99,7 @@ class AdminController extends Controller
 
         $clothes = Clothes::all();
         
-        return view('admin', ['view' => 'admin.table', 'clothes' => $clothes]);
+        return view('admin.table', ['clothes' => $clothes]);
     }
 
     public function editClothes($id)
