@@ -40,7 +40,7 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'surname' => $input['surname'],
             'occupation' => $input['occupation'],
-            // 'personality' => '',
+            'personality' => $input['occupation'],
             'email' => $input['email'],
             'birthdate' => $input['birthdate'],
             'password' => Hash::make($input['password']),
