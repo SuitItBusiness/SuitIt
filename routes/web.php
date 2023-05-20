@@ -31,7 +31,9 @@ Route::get('/register', function () {
     return view('auth.register');
     })->name('register')->middleware('guest');;
 
-// Route::post("/register", [UsersController::class, "create"])->name("user.create");
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
 
 
 Route::get('/admin', function () {

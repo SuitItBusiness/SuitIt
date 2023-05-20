@@ -76,6 +76,10 @@
                     <label for="floatingInput">Apellidos<span class="text-danger">*</span></label>
                   </div>
                   <div class="form-floating mb-2">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="" name="surname">
+                    <label for="floatingInput">Personalidad<span class="text-danger">*</span></label>
+                  </div>
+                  <div class="form-floating mb-2">
                     <input type="date" class="form-control" id="floatingInput" placeholder="" name="birthdate">
                     <label for="floatingInput">Fecha de nacimiento<span class="text-danger">*</span></label>
                   </div>
