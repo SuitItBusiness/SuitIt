@@ -94,7 +94,7 @@
                                             <a class="dropdown-item px-2 text-hover-white" href="{{ route('admin.users') }}"><i
                                                     class="bi bi-gear-fill"></i> Panel de administración</a>
                                         </li>
-                                    @elseif (Auth::user()->role == 'client')
+                                    @elseif (Auth::user()->role == 'user')
                                         <li>
                                             <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
                                                     class="bi bi-person-circle"></i> Panel de usuario</a>
@@ -111,6 +111,7 @@
                                 @csrf
                             </form>
                         @endauth
+                        
                 <form class="d-flex"><a class="text-1000" href="#!">
                         <svg class="feather feather-phone me-3" xmlns="http://www.w3.org/2000/svg" width="16"
                             height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
