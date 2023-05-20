@@ -31,11 +31,6 @@ Route::get('/register', function () {
     return view('auth.register');
     })->name('register')->middleware('guest');;
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-    ->middleware('auth')
-    ->name('logout');
-
-
 Route::get('/admin', function () {
 return view('admin.table');
 });

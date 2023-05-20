@@ -96,7 +96,7 @@
                                         </li>
                                     @elseif (Auth::user()->role == 'user')
                                         <li>
-                                            <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
+                                            <a class="dropdown-item px-2 text-hover-white" href=""><i
                                                     class="bi bi-person-circle"></i> Panel de usuario</a>
                                         </li>
                                     @endif
@@ -134,19 +134,7 @@
                                     stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
-                                </svg></a><a class="text-1000" href="#!">
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                                    <li class="nav-item"><a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                                </li>
-                                <form id="logout-form" name="logout-form" action="{{ route('logout') }}"
-                                    method="POST" class="d-none">
-                                    @csrf
-                                    {{ csrf_field() }}
-                                </form>
-                                </ul>
-                                <span>{{ auth()->user()->name }}</span>
+                                </svg></a>
                             </div>
                     </a>
                 </form>
