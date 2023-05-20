@@ -84,33 +84,33 @@
                     </li>
                 </ul>
                 @auth
-                            <li class="nav-item dropdown d-flex mx-md-5">
-                                <a class="nav-link dropdown-toggle text-primary text-hover-white" href="#"
-                                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i>
-                                    {{ Auth::user()->name }}</a>
-                                <ul class="dropdown-menu products-open">
-                                    @if (Auth::user()->role == 'admin')
-                                        <li>
-                                            <a class="dropdown-item px-2 text-hover-white" href="{{ route('admin.users') }}"><i
-                                                    class="bi bi-gear-fill"></i> Panel de administración</a>
-                                        </li>
-                                    @elseif (Auth::user()->role == 'user')
-                                        <li>
-                                            <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
-                                                    class="bi bi-person-circle"></i> Panel de usuario</a>
-                                        </li>
-                                    @endif
-                                    <li>
-                                        <a class="dropdown-item px-2 text-hover-white" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); document.getElementById('formLogout').submit();"><i
-                                                class="bi bi-x-square-fill"></i> {{ __('Logout') }}</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <form action="{{ route('logout') }}" method="POST" id="formLogout">
-                                @csrf
-                            </form>
-                        @endauth
+                    <li class="nav-item dropdown d-flex mx-md-5">
+                        <a class="nav-link dropdown-toggle text-primary text-hover-white" href="#"
+                            data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i>
+                            {{ Auth::user()->name }}</a>
+                        <ul class="dropdown-menu products-open">
+                            @if (Auth::user()->role == 'admin')
+                                <li>
+                                    <a class="dropdown-item px-2 text-hover-white" href="{{ route('admin.users') }}"><i
+                                            class="bi bi-gear-fill"></i> Panel de administración</a>
+                                </li>
+                            @elseif (Auth::user()->role == 'user')
+                                <li>
+                                    <a class="dropdown-item px-2 text-hover-white" href=""><i
+                                            class="bi bi-person-circle"></i> Panel de usuario</a>
+                                </li>
+                            @endif
+                            <li>
+                                <a class="dropdown-item px-2 text-hover-white" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('formLogout').submit();"><i
+                                        class="bi bi-x-square-fill"></i> {{ __('Logout') }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <form action="{{ route('logout') }}" method="POST" id="formLogout">
+                            @csrf
+                        </form>
+                    @endauth
                         
                 <form class="d-flex"><a class="text-1000" href="#!">
                         <svg class="feather feather-phone me-3" xmlns="http://www.w3.org/2000/svg" width="16"
@@ -126,28 +126,6 @@
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg></a><a class="text-1000" href="#!">
-                            <div class="dropdown">
-                                <a class="dropdown-toggle text-1000" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <svg class="feather feather-user me-3" xmlns="http://www.w3.org/2000/svg" width="16"
-                                    height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg></a><a class="text-1000" href="#!">
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                                    <li class="nav-item"><a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                                </li>
-                                <form id="logout-form" name="logout-form" action="{{ route('logout') }}"
-                                    method="POST" class="d-none">
-                                    @csrf
-                                    {{ csrf_field() }}
-                                </form>
-                                </ul>
-                                <span>{{ auth()->user()->name }}</span>
-                            </div>
                     </a>
                 </form>
             </div>
