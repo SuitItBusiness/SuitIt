@@ -12,7 +12,6 @@ class EventsController extends Controller
     public function addArticle($id, $eventId)
     {
         $event = Event::findOrFail($eventId);
-        $article = Clothes::findOrFail($id);
 
         $event->clothes()->attach($id);
     }
