@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
 use App\Models\Clothes;
+use App\Models\Event;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -46,20 +47,16 @@ class DatabaseSeeder extends Seeder
 
         $categories = [
             [
-                'name' => 'Camisetas',
-                'description' => 'Camisetas de manga corta',
+                'name' => 'Camisetas/Camisas',
+                'description' => 'Parte de arriba',
             ],
             [
                 'name' => 'Pantalones',
                 'description' => 'Distintos tipos de pantalones',
             ],
             [
-                'name' => 'Camisas',
-                'description' => 'Camisas de manga larga',
-            ],
-            [
-                'name' => 'Calzonas',
-                'description' => 'Distintos tipos de calzonas',
+                'name' => 'Abrigos',
+                'description' => 'Sobrecamisetas o abrigos',
             ],
             [
                 'name' => 'Zapatos',
@@ -71,6 +68,37 @@ class DatabaseSeeder extends Seeder
             Category::create($category);
         }
 
+        $events = [
+            [
+                'name' => 'Casual',
+                'description' => 'Ropa informal para salir con los amigos.',
+            ],
+            [
+                'name' => 'Oficina',
+                'description' => 'Ropa formal para ir arreglado al trabajo.',
+            ],
+            [
+                'name' => 'Deporte',
+                'description' => 'Ropa cómoda para practicar deporte.',
+            ],
+            [
+                'name' => 'Estar por casa',
+                'description' => 'Ropa cómoda para estar en casa.',
+            ],
+            [
+                'name' => 'Celebraciones',
+                'description' => 'Ropa muy formal típica de bodas o comuniones.',
+            ],
+            [
+                'name' => 'Playero',
+                'description' => 'Perfecto para ir a la playa o la piscina.',
+            ],
+        ];
+
+        foreach ($events as $event) {
+            Event::create($event);
+        }
+
         $clothes = [
             [
                 'name' => 'Camiseta Nike',
@@ -80,6 +108,7 @@ class DatabaseSeeder extends Seeder
                 'price' => 19.99,
                 'url' => 'https://example.com/clothes/red-nike',
                 'comfort_level' => 5,
+                'general' => true,
                 'category_id' => 1,
             ],
             [
@@ -90,6 +119,7 @@ class DatabaseSeeder extends Seeder
                 'price' => 29.99,
                 'url' => 'https://example.com/clothes/blue-adidas',
                 'comfort_level' => 4,
+                'general' => true,
                 'category_id' => 2,
             ],
             [
@@ -100,7 +130,8 @@ class DatabaseSeeder extends Seeder
                 'price' => 24.99,
                 'url' => 'https://example.com/clothes/white-puma',
                 'comfort_level' => 5,
-                'category_id' => 4,
+                'general' => true,
+                'category_id' => 2,
             ],
             [
                 'name' => 'Pantalón Levi',
@@ -110,6 +141,7 @@ class DatabaseSeeder extends Seeder
                 'price' => 89.99,
                 'url' => 'https://example.com/clothes/blue-levi',
                 'comfort_level' => 4,
+                'general' => true,
                 'category_id' => 2,
             ],
             [
@@ -120,16 +152,18 @@ class DatabaseSeeder extends Seeder
                 'price' => 39.99,
                 'url' => 'https://example.com/clothes/black-converse',
                 'comfort_level' => 3,
-                'category_id' => 5,
+                'general' => true,
+                'category_id' => 4,
             ],
             [
-                'name' => 'Camisa gris',
-                'color' => 'gray',
+                'name' => 'Camisa cuadros gruesa',
+                'color' => 'red',
                 'brand' => 'H&M',
                 'season' => 'winter',
                 'price' => 49.99,
                 'url' => 'https://example.com/clothes/gray-hm',
                 'comfort_level' => 4,
+                'general' => true,
                 'category_id' => 3,
             ],
             [
@@ -140,7 +174,8 @@ class DatabaseSeeder extends Seeder
                 'price' => 34.99,
                 'url' => 'https://example.com/clothes/green-vans',
                 'comfort_level' => 5,
-                'category_id' => 5,
+                'general' => true,
+                'category_id' => 4,
             ],
         ];
 

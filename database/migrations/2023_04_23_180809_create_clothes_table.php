@@ -20,6 +20,7 @@ return new class extends Migration
             $table->float('price');
             $table->string('url');
             $table->integer('comfort_level');
+            $table->boolean('general');
             $table->foreignId('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
