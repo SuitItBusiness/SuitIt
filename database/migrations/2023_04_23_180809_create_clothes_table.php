@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('brand');
             $table->enum('season', ['spring', 'summer', 'fall', 'winter']);
             $table->float('price');
-            $table->string('url');
+            $table->string('image');
             $table->integer('comfort_level');
             $table->boolean('general');
             $table->foreignId('category_id')->references('id')->on('categories');
