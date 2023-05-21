@@ -14,18 +14,17 @@ class WardrobesController extends Controller
         $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
         $article = Clothes::findOrFail($id);
 
-        if (!$wardrobe->clothes->contains($id)) { // check if the article is already in the wardrobe
-            $wardrobe->clothes()->attach($id, ['quantity' => $quantity ?? 1]);
-        } else {
-            $wardrobe->clothes()->updateExistingPivot($id, ['quantity' => $quantity ?? 1]);
-        }
+        $wardrobe->clothes()->attach($id, ['quantity' => $quantity ?? 1]);
+
+        $wardrobe->increment('clothes_number');
+
     }
 
-    public function destroyClothes(Request $request, $id)
-    {
-        $clothes = Clothes::withTrashed()->findOrFail($id);
-        $clothes->forceDelete();
+    // public function destroyClothes(Request $request, $id)
+    // {
+    //     $clothes = Clothes::withTrashed()->findOrFail($id);
+    //     $clothes->forceDelete();
 
-        return redirect()->route('admin.clothes')->with('success', __(':name has been deleted.', ['name' => $clothes->name]));
-    }
+    //     return redirect()->route('admin.clothes')->with('success', __(':name has been deleted.', ['name' => $clothes->name]));
+    // }
 }
