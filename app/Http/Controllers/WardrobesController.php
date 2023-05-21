@@ -12,10 +12,8 @@ class WardrobesController extends Controller
     public function addArticle($id, $quantity)
     {
         $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
-        $article = Clothes::findOrFail($id);
 
         $wardrobe->clothes()->attach($id, ['quantity' => $quantity ?? 1]);
-
         $wardrobe->increment('clothes_number');
 
     }
