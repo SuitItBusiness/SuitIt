@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('color');
             $table->string('brand');
-            $table->enum('season', ['spring', 'summer', 'fall', 'winter']);
+            $table->enum('season', ['summer', 'winter', 'all']);
             $table->float('price');
             $table->string('image');
             $table->integer('comfort_level');
