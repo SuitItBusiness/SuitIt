@@ -18,6 +18,16 @@ class WardrobesController extends Controller
 
     }
 
+    public function importGeneralArticles()
+    {
+        $generalClothes = Clothes::where('general', true)->get();
+
+        foreach ($generalClothes as $clothes) {
+            $this->addArticle($clothes->id, 1);
+        }
+
+    }
+
     // public function destroyClothes(Request $request, $id)
     // {
     //     $clothes = Clothes::withTrashed()->findOrFail($id);
