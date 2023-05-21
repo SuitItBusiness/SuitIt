@@ -44,10 +44,6 @@ Route::prefix('account')->middleware('verified')->group(function () {
 // Admin routes
 Route::prefix('admin')->middleware('admin')->group(function () {
 
-    // Route::get('/', function () {
-    //     return view('admin.table');
-    // });
-    
     # Users
     Route::get('/users', 'AdminController@indexUsers')->name('admin.users');
     Route::get('/users/new', 'AdminController@createUser')->name('admin.users.new');
@@ -59,7 +55,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
     # Clothes
     // Route::get('/', 'AdminController@indexClothes')->name('admin.table');
-    Route::get('/', [AdminController::class, 'indexClothes']);
+    Route::get('/', [AdminController::class, 'indexClothes'])->name('admin.table');
 
     Route::get('/clothes/new', 'AdminController@createClothes')->name('admin.table.new');
     Route::get('/clothes/{id}/edit', 'AdminController@editClothes')->name('admin.table.edit');
