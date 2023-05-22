@@ -17,6 +17,14 @@ class ClothesController extends Controller
 
     }
 
+    public function showClothesArmario()
+    {
+
+        $clothes = Clothes::all(); // Nos saca todos las prendas de la BBDD
+        return view('armario', @compact('clothes'));
+
+    }
+
     public function createClothes(Request $request)
     {
         $request->validate([

@@ -71,7 +71,7 @@
             <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item px-2">
-                        <a class="nav-link fw-medium active" aria-current="page" href="#categoryWomen">Armario</a>
+                        <a class="nav-link fw-medium active" aria-current="page" href="/armario">Armario</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link fw-medium" href="#header">Temporadas</a>
