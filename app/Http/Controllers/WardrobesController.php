@@ -12,12 +12,29 @@ class WardrobesController extends Controller
     public function addArticle($id, $quantity)
     {
         $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
+    
+        // Verificar si el artículo ya está presente en el guardarropa
+        $isAlreadyAdded = $wardrobe->clothes()->where('clothes.id', $id)->exists();
+    
+        if (!$isAlreadyAdded) {
+            // Agregar el artículo al guardarropa
+            $syncResult = $wardrobe->clothes()->syncWithoutDetaching([$id => ['quantity' => $quantity ?? 1]]);
+            $wardrobe->increment('clothes_number');
+    
+            // Verificar si se agregaron registros nuevos
+            $attachedCount = $syncResult['attached'] ?? 0;
+            if ($attachedCount > 0) {
+                return redirect()->route('index')->with('success', __('Prenda'));
+            }else{
+                return redirect()->route('index')->with('success', __('Esa prenda ya está en el armario.'));
+            }
 
-        $wardrobe->clothes()->attach($id, ['quantity' => $quantity ?? 1]);
-        $wardrobe->increment('clothes_number');
-
+        }
+    
+        // Mostrar mensaje indicando que la prenda ya está en el guardarropa
+        return redirect()->route('index')->with('info', __('Clothe already added.'));
     }
-
+    
     public function importGeneralArticles()
     {
         $generalClothes = Clothes::where('general', true)->get();
