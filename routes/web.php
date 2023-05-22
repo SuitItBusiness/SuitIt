@@ -22,6 +22,14 @@ use App\Http\Controllers\WardrobesController;
 
 Route::get('/', [ ClothesController::class,'showClothes'])->name('index')->middleware('auth');
 
+//Armario routes
+
+Route::get('/armario', [ ClothesController::class,'showClothesArmario'])->name('armario')->middleware('auth');
+
+/* Route::get('/armario', function () {
+    return view('armario');
+    })->name('armario'); */
+
 
 //Login y Register routes
 
