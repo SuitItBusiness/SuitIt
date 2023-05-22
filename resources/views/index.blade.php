@@ -12,32 +12,13 @@
                 style="background-image:url(assets/img/gallery/header-bg.png);background-size:cover;">
             </div>
             <!--/.bg-holder-->
-
-
-            {{-- FOR EACH DE PANTALONES --}}
-            {{-- <div class="product">
-                            <div class="product-top">
-                              @foreach ($clothes as $clo)
-                              <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
-                                <div class="card card-span h-100 text-white"><img class="img-fluid h-100" src="assets/img/gallery/shirt-1.png" alt="..." />
-                                  <div class="card-img-overlay ps-0"> </div>
-                                  <div class="card-body ps-0 bg-200">
-                                    <h5 class="fw-bold text-1000 text-truncate">{{$clo->name}}</h5>
-                                    <div class="fw-bold"><span class="text-primary ">{{$clo->price}}€</span></div>
-                                  </div><a class="stretched-link" href="#"></a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          @endforeach --}}
-
-            {{-- FIN FOR EACH PANTALONES --}}
+        
 
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
             <div class="container-fluid !direction !spacing  ">
                 <h3 class="fs-3 fs-lg-5 lh-sm mt-5 centrado">Busca tus prendas</h3>
-                <section class="hero-section">
+                <div class="hero-section">
                     <div class="carta-grid">
                         <a class="carta" href="#">
                             <div class="carta__background"
@@ -72,10 +53,50 @@
                             </div>
                         </a>
                         <div>
-                </section>
-
+                    </div>
             </div>
         </div>
+        <div class="d-flex justify-content-center align-items-center vh-100">
+            <div id="carouselExampleControls" class="carousel slide w-50" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                @php $count = 0; @endphp
+                @foreach ($clothes->chunk(4) as $chunk)
+                  @php $active = ($count == 0) ? 'active' : ''; @endphp
+                  <div class="carousel-item {{ $active }}">
+                    <div class="row justify-content-center">
+                      @foreach ($chunk as $clo)
+                        <div class="col-sm-6 col-md-3 mb-3 mb-md-0">
+                          <div class="card rounded text-white">
+                            <img class="card-img-top" src="assets/img/gallery/shirt-1.png" alt="...">
+                            <div class="card-body text-center">
+                              <h5 class="card-title fw-bold text-truncate text-center">{{$clo->name}}</h5>
+                              <div class="card-text fw-bold text-center justify-center"><span class="text-primary">{{$clo->price}}€</span></div>
+                              <a href="#" class="btn btn-sm btn-primary mt-2 text-center justify-center">
+                                <i class="fa fa-plus text-center">Añadir al armario</i> 
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      @endforeach
+                    </div>
+                  </div>
+                  @php $count++; @endphp
+                @endforeach
+              </div>
+          
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+              
+            </div>
+          </div>
+          
+        
         <section>
 
             <div class="container">
