@@ -71,8 +71,8 @@
                             <div class="card-body text-center">
                               <h5 class="card-title fw-bold text-truncate text-center">{{$clo->name}}</h5>
                               <div class="card-text fw-bold text-center justify-center"><span class="text-primary">{{$clo->price}}€</span></div>
-                              <a href="#" class="btn btn-sm btn-primary mt-2 text-center justify-center">
-                                <i class="fa fa-plus text-center">Añadir al armario</i> 
+                              <a href="{{ route('wardrobe.addArticle', [$clo->id, 1]) }}" class="btn-sm btn-primary mt-2 text-center justify-center text-decoration-none">
+                                Añadir al armario
                               </a>
                             </div>
                           </div>

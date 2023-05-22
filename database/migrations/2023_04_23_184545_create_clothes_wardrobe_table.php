@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('clothes_wardrobe', function (Blueprint $table) {
             $table->id();
-            $table->integer('uses_number');
+            $table->integer('uses_number')->default(0);
             $table->integer('quantity')->default(1);
             $table->foreignId('clothes_id')->references('id')->on('clothes');
             $table->foreignId('wardrobe_id')->references('id')->on('wardrobes');
