@@ -1,9 +1,13 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Clothes;
 use App\Models\User;
+use Illuminate\Http\Request;
+
 
 class AdminController extends Controller
 {
@@ -96,7 +100,7 @@ class AdminController extends Controller
 
         $clothes = Clothes::all();
         
-        return view('admin', ['view' => 'admin.table', 'clothes' => $clothes]);
+        return view('admin.table', ['clothes' => $clothes]);
     }
 
     public function editClothes($id)
@@ -108,7 +112,7 @@ class AdminController extends Controller
         return view('admin.container', ['view' => 'clothes.edit', 'clothes' => $clothes]);
     }
 
-    public function saveClothes(SaveClothesRequest $request, $id = null)
+    public function saveClothes(Request $request, $id = null)
     {
         if ($id)
             $clothes = Clothes::findOrFail($id);

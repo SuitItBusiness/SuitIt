@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('wardrobes', function (Blueprint $table) {
             $table->id();
-            $table->integer('cloth_number');
-            $table->float('total_price');
+            $table->integer('clothes_number')->default(0);
+            $table->float('total_price')->default(0);
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
