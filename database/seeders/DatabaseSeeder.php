@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
 
         $categories = [
             [
-                'name' => 'Camisetas/Camisas',
+                'name' => 'Camisetas-Camisas',
                 'description' => 'Parte de arriba',
             ],
             [
@@ -103,9 +103,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Camiseta Nike',
                 'color' => 'red',
-                'brand' => 'Nike',
                 'season' => 'all',
-                'price' => 19.99,
                 'image' => 'https://example.com/clothes/red-nike',
                 'comfort_level' => 5,
                 'general' => true,
@@ -114,9 +112,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Pantalón Adidas',
                 'color' => 'black',
-                'brand' => 'Adidas',
                 'season' => 'all',
-                'price' => 29.99,
                 'image' => 'https://example.com/clothes/blue-adidas',
                 'comfort_level' => 4,
                 'general' => true,
@@ -125,9 +121,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Calzonas Puma',
                 'color' => 'white',
-                'brand' => 'Puma',
                 'season' => 'summer',
-                'price' => 24.99,
                 'image' => 'https://example.com/clothes/white-puma',
                 'comfort_level' => 5,
                 'general' => true,
@@ -136,9 +130,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Pantalón Levi',
                 'color' => 'blue',
-                'brand' => 'Levi\'s',
                 'season' => 'all',
-                'price' => 89.99,
                 'image' => 'https://example.com/clothes/blue-levi',
                 'comfort_level' => 4,
                 'general' => true,
@@ -147,9 +139,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Converse',
                 'color' => 'black',
-                'brand' => 'Converse',
                 'season' => 'all',
-                'price' => 39.99,
                 'image' => 'https://example.com/clothes/black-converse',
                 'comfort_level' => 3,
                 'general' => true,
@@ -158,9 +148,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Camisa cuadros gruesa',
                 'color' => 'red',
-                'brand' => 'H&M',
                 'season' => 'winter',
-                'price' => 49.99,
                 'image' => 'https://example.com/clothes/gray-hm',
                 'comfort_level' => 4,
                 'general' => true,
@@ -169,9 +157,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Vans Classic Verde',
                 'color' => 'green',
-                'brand' => 'Vans',
                 'season' => 'all',
-                'price' => 34.99,
                 'image' => 'https://example.com/clothes/green-vans',
                 'comfort_level' => 5,
                 'general' => true,

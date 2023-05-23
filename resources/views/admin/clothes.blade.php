@@ -14,13 +14,8 @@
                 <label for="color">Color:</label>
                 <input type="text" name="color" id="color" class="form-control" required>
             </div>
-    
-            <div class="col-4 form-group">
-                <label for="brand">Marca:</label>
-                <input type="text" name="brand" id="brand" class="form-control" required>
-            </div>
         </div>
-    
+
         <div class="row">
             <div class="col-4 form-group">
                 <label for="season">Temporada:</label>
@@ -31,14 +26,11 @@
                 </select>
             </div>
     
-            <div class="col-4 form-group">
-                <label for="price">Precio:</label>
-                <input type="number" name="price" id="price" step="0.01" class="form-control" required>
-            </div>
-    
-            <div class="col-4 form-group">
-                <label for="image">Imagen:</label>
-                <input type="file" name="image" id="image" class="form-control-file" required>
+            <div class="form-floating mb-3">
+                <label for="image">Imagen<span class="text-danger">*</span></label>
+                <input class="form-control" id="image" type="file" name="image" placeholder="Imagen"
+                    accept="image/png, image/jpeg, image/webp" data-sb-validations="required"
+                    value="{{ old('image') }}" required />
             </div>
         </div>
 
@@ -61,12 +53,10 @@
         </div>
         <div class="col-4 form-group">
             <div class="form-check">
-                <input type="checkbox" name="general" id="general" class="form-check-input">
-                <label class="form-check-label" for="general">General</label>
+                <input type="checkbox" name="general" id="general" class="form-check-input" value="1" hidden>
+                <label class="form-check-label" for="general"></label>
             </div>
         </div>
-
-
 
         <button type="submit" class="btn btn-primary mt-5">Guardar</button>
     </div>
