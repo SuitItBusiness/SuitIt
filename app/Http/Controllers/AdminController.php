@@ -113,9 +113,19 @@ class AdminController extends Controller
 
     public function saveClothes(Request $request, $id = null)
     {
+
         if ($id)
             $clothes = Clothes::findOrFail($id);
         else
+            $request->validate([
+                'name' => 'required|unique:clothes,name|string|min:2|max:255',
+                'color' => 'required|string|min:2|max:255',
+                'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+                'comfort_level' => 'required|integer|min:1|max:10',
+                'season' => 'required',
+                'category' => 'required'
+            ]);
+            
             $clothes = new Clothes();
 
             $clothes->name = $request->input('name');
@@ -123,16 +133,19 @@ class AdminController extends Controller
             $clothes->brand = $request->input('brand');
             $clothes->season = $request->input('season');
             $clothes->price = $request->input('price');
-            $clothes->image = $request->input('image');
             $clothes->comfort_level = $request->input('comfort_level');
-            $clothes->general = $request->input('general');            
+            $clothes->general = isset($request->general) ? 1 : 0;
             $clothes->category_id = $request->input('category_id');
+
+            $imageName = "image-" . $clothes->id . '.' . $request->image->extension();
+            $request->image->move(public_path('assets\img'), $imageName);
+            $clothes->image = $imageName;
             $clothes->save();
 
         if ($id)
-            return redirect()->route('admin.clothes.edit', $id)->with('success', __('Settings saved.'));
+            return redirect()->route('admin.table', $id)->with('success', __('Settings saved.'));
         else
-            return redirect()->route('admin.clothes')->with('success', __(':name has been created.', ['name' => $request->input('name')]));
+            return redirect()->route('admin.table')->with('success', __(':name has been created.', ['name' => $request->input('name')]));
     }
 
     // Delete clothes completly

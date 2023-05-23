@@ -42,8 +42,6 @@ class ClothesController extends Controller
             $article->comfort_level = $request['comfort_level'];
             $article->category_id = $request['category'];
 
-            $article->save();
-
             $imageName = "image-" . $article->id . '.' . $request->image->extension();
             $request->image->move(public_path('assets\img'), $imageName);
             $article->image = $imageName;

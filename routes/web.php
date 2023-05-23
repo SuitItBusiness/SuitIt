@@ -63,7 +63,6 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
     # Clothes
     Route::get('/', [AdminController::class, 'indexClothes'])->name('admin.table');
-    Route::get('/clothes/new', [AdminController::class, 'createClothes'])->name('admin.table.new');
     Route::get('/clothes/{id}/edit', [AdminController::class, 'editClothes'])->name('admin.table.edit');
     Route::post('/clothes/{id}/edit', [AdminController::class, 'saveClothes'])->name('admin.table.save');
     Route::delete('/clothes/{id}/destroy', [AdminController::class, 'destroyClothes'])->name('admin.table.destroy');

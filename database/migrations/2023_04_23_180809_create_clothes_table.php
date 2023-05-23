@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('color');
-            $table->string('brand');
+            $table->string('brand')->nullable();
             $table->enum('season', ['summer', 'winter', 'all']);
-            $table->float('price');
+            $table->float('price')->nullable();
             $table->string('image');
             $table->integer('comfort_level');
             $table->boolean('general');
