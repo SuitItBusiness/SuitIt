@@ -24,8 +24,10 @@ Route::get('/', [ ClothesController::class,'showClothes'])->name('index')->middl
 
 //Armario routes
 
-Route::get('/armario', [ ClothesController::class,'showClothesArmario'])->name('armario')->middleware('auth');
-
+Route::prefix('armario')->middleware('auth')->group(function () {
+    Route::get('/', [ ClothesController::class,'showClothesArmario'])->name('armario');
+    Route::get('/{name}', [ CategoriesController::class,'filterByCategory'])->name('filteredClothes');
+});
 //Login y Register routes
 
     Route::get('/login', function () {

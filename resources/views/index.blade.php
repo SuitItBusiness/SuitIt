@@ -20,20 +20,25 @@
                 <h3 class="fs-3 fs-lg-5 lh-sm mt-5 centrado">Busca tus prendas</h3>
                 <div class="hero-section">
                     <div class="carta-grid">
-                        <a class="carta" href="#">
-                            <div class="carta__background"
-                                style="background-image:url(assets/img/gallery/fondocamisetas.png)"></div>
-                            <div class="carta__content">
-                                <p class="carta__category">Categoría</p>
-                                <h3 class="carta__heading">Encuentra tus camisetas</h3>
-                            </div>
-                        </a>
-                        <a class="carta" href="#">
+                        @foreach (\App\Models\Category::all() as $category)
+                        
+                            <a class="carta" href="armario/{{$category->name}}">
+                                <div class="carta__background"
+                                    style="background-image:url(assets/img/gallery/fondocamisetas.png)"></div>
+                                <div class="carta__content">
+                                    <p class="carta__category">Categoría</p>
+                                    <h3 class="carta__heading">Encuentra tus {{ $category->name}}</h3>
+                                </div>
+                            </a>
+
+                        @endforeach
+
+                        {{-- <a class="carta" href="#">
                             <div class="carta__background"
                                 style="background-image:url(assets/img/gallery/fondopantalones.png)"></div>
                             <div class="carta__content">
                                 <p class="carta__category">Categoría</p>
-                                <h3 class="carta__heading">Encuentra tus pantalones</h3>
+                                <h3 class="carta__heading">Encuentra tus camisetas/camisas</h3>
                             </div>
                         </a>
                         <a class="carta" href="#">
@@ -41,7 +46,7 @@
                                 style="background-image:url(assets/img/gallery/fondocamisas.png)"></div>
                             <div class="carta__content">
                                 <p class="carta__category">Categoría</p>
-                                <h3 class="carta__heading">Encuentra tus camisas</h3>
+                                <h3 class="carta__heading">Encuentra tus pantalones</h3>
                             </div>
                         </a>
                         <a class="carta" href="#">
@@ -50,7 +55,7 @@
                             <div class="carta__content">
                                 <p class="carta__category">Categoría</p>
                                 <h3 class="carta__heading">Encuentra tus zapatos</h3>
-                            </div>
+                            </div> --}}
                         </a>
                         <div>
                     </div>
