@@ -22,9 +22,11 @@ use App\Http\Controllers\WardrobesController;
 
 Route::get('/', [ ClothesController::class,'showClothes'])->name('index')->middleware('auth');
 
+Route::get('/importGeneral', [ WardrobesController::class,'importGeneralArticles'])->name('importGeneral')->middleware('auth');
+
 //Armario routes
 
-Route::get('/armario', [ ClothesController::class,'showClothesArmario'])->name('armario')->middleware('auth');
+Route::get('/armario', [ WardrobesController::class,'showClothesWardrobe'])->name('armario')->middleware('auth');
 
 //Login y Register routes
 
