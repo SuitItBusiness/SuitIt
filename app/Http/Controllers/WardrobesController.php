@@ -42,6 +42,7 @@ class WardrobesController extends Controller
         foreach ($generalClothes as $clothes) {
             $this->addArticle($clothes->id, 1);
         }
+        return back();
 
     }
 

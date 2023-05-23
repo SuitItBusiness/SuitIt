@@ -22,6 +22,8 @@ use App\Http\Controllers\WardrobesController;
 
 Route::get('/', [ ClothesController::class,'showClothes'])->name('index')->middleware('auth');
 
+Route::get('/importGeneral', [ WardrobesController::class,'importGeneralArticles'])->name('importGeneral')->middleware('auth');
+
 //Armario routes
 
 Route::prefix('armario')->middleware('auth')->group(function () {

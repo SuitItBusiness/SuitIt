@@ -59,7 +59,7 @@
 @section('nav')
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
         <div class="container">
-            <a class="navbar-brand d-inline-flex" href="index.html">
+            <a class="navbar-brand d-inline-flex" href="/">
                 <img class="d-inline-block" src="assets/img/gallery/logo.png" alt="logo" />
                 <span class="text-1000 fs-0 fw-bold ms-2">SUITIT</span>
             </a>
@@ -74,13 +74,7 @@
                         <a class="nav-link fw-medium active" aria-current="page" href="/armario">Armario</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link fw-medium" href="#header">Temporadas</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link fw-medium" href="#collection">Colecciones</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link fw-medium" href="#outlet">Looks</a>
+                        <a class="nav-link fw-medium" href="#header">Recomendación</a>
                     </li>
                 </ul>
                 @auth
