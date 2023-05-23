@@ -45,7 +45,7 @@ class ClothesController extends Controller
             $article->save();
 
             $imageName = "image-" . $article->id . '.' . $request->image->extension();
-            $request->image->move(public_path('img'), $imageName);
+            $request->image->move(public_path('assets\img'), $imageName);
             $article->image = $imageName;
 
             $article->save();
