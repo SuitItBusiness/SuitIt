@@ -62,7 +62,7 @@
                 </div>
                 <div class="row justify-content-center text-center">
                     <div class="col-2">
-                        {{-- <a href="{{ route('admin.crear') }}"> --}}
+                        <a href="{{ route('admin.table.edit', $clo->id) }}">
                             <button class="btn btn-primary" type="submit">Crear</button></h3></a>
                     </div>
                 </div>
