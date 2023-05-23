@@ -105,11 +105,10 @@ class AdminController extends Controller
 
     public function editClothes($id)
     {
-        $clothes = Clothes::withTrashed()
-            ->where('id', $id)
-            ->firstOrFail();
+        $clothes = Clothes::where('id', $id)->firstOrFail();
 
-        return view('admin.container', ['view' => 'clothes.edit', 'clothes' => $clothes]);
+            $categories = Category::all();
+        return view('admin.clothes', ['view' => 'clothes', 'clothes' => $clothes, 'categories' => $categories]);
     }
 
     public function saveClothes(Request $request, $id = null)
@@ -119,10 +118,16 @@ class AdminController extends Controller
         else
             $clothes = new Clothes();
 
-        $clothes->name = $request->input('name');
-        $clothes->description = $request->input('description');
-        $clothes->category_id = $request->input('category_id');
-        $clothes->save();
+            $clothes->name = $request->input('name');
+            $clothes->color = $request->input('color');
+            $clothes->brand = $request->input('brand');
+            $clothes->season = $request->input('season');
+            $clothes->price = $request->input('price');
+            $clothes->image = $request->input('image');
+            $clothes->comfort_level = $request->input('comfort_level');
+            $clothes->general = $request->input('general');            
+            $clothes->category_id = $request->input('category_id');
+            $clothes->save();
 
         if ($id)
             return redirect()->route('admin.clothes.edit', $id)->with('success', __('Settings saved.'));
@@ -133,11 +138,11 @@ class AdminController extends Controller
     // Delete clothes completly
     public function destroyClothes(Request $request, $id)
     {
-        $clothes = Clothes::withTrashed()->findOrFail($id);
+        $clothes = Clothes::findOrFail($id);
 
-        $clothes->forceDelete();
+        $clothes->delete();
 
-        return redirect()->route('admin.clothes')->with('success', __(':name has been deleted.', ['name' => $clothes->name]));
+        return redirect()->route('admin.table')->with('success', __(':name has been deleted.', ['name' => $clothes->name]));
     }
 
     /**
