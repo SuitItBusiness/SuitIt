@@ -192,7 +192,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Chaqueta de Cuero',
                 'color' => 'brown',
-                'season' => 'fall',
+                'season' => 'winter',
                 'image' => 'image-10.jpg',
                 'comfort_level' => 4,
                 'general' => true,
