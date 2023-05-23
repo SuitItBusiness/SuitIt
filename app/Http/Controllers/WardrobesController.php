@@ -45,11 +45,27 @@ class WardrobesController extends Controller
 
     }
 
-    // public function destroyClothes(Request $request, $id)
-    // {
-    //     $clothes = Clothes::withTrashed()->findOrFail($id);
-    //     $clothes->forceDelete();
+    public function deleteClothes($id)
+    {
+        $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
+        $wardrobe->clothes()->detach($id);
 
-    //     return redirect()->route('admin.clothes')->with('success', __(':name has been deleted.', ['name' => $clothes->name]));
-    // }
+        return back();
+    }
+
+    public function showClothesWardrobe()
+    {
+        $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
+        $clothes = $wardrobe->clothes;
+        $totalPrice = 0;
+        foreach ($clothes as $cloth){
+            $totalPrice += $cloth->price * $cloth->pivot->quantity;
+        }
+        $wardrobe->total_price = $totalPrice;
+        $wardrobe->update();
+        return view('armario', @compact('clothes'));
+
+    }
+
+
 }
