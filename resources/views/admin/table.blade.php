@@ -23,34 +23,36 @@
                         <thead>
                             <tr>
                                 <td>ID</td>
-                                <td>Name</td>
-                                <td>Price</td>
-                                <td>Stock</td>
-                                <td>Category</td>
+                                <td>Nombre</td>
+                                <td>Precio</td>
+                                <td>Color</td>
+                                <td>Marca</td>
+                                <td>Categoría</td>
                                 <td>Editar</td>
                                 <td>Eliminar</td>
                         </thead>
 
                         </tbody>
-                        @foreach ($clothes as $product)
+                        @foreach ($clothes as $clo)
                         <tr>
-                            <td>{{ $product->id }}</td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->price }}</td>
-                            <td>{{ $product->stock }}</td>
-                            <td>{{ $product->category }}</td>
-                            {{-- <td>
-                                <a href="{{ route('admin.table.editar', $product->id) }}"
+                            <td>{{ $clo->id }}</td>
+                            <td>{{ $clo->name }}</td>
+                            <td>{{ $clo->price }}</td>
+                            <td>{{ $clo->color }}</td>
+                            <td>{{ $clo->brand }}</td>
+                            <td>{{ $clo->category->name }}</td>
+                            <td>
+                                <a href="{{ route('admin.table.editar', $clo->id) }}"
                                     class="row justify-content-center"><button class="btn btn-primary" type="submit"><i
                                             class="bi bi-pencil"></i></button></a></td>
                             <td>
-                                <form action="{{ route('admin.table.eliminar', $product->id) }}" method="POST"
+                                <form action="{{ route('admin.table.eliminar', $clo->id) }}" method="POST"
                                     class="row justify-content-center">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-danger" type="submit"><i class="bi bi-trash"></i></button>
                                 </form>
-                            </td> --}}
+                            </td>
                         </tr>
                     @endforeach
                     </table>
@@ -65,5 +67,4 @@
             </div>
         </div>
     </div>
-    <!-- End of Main Content -->
 @endsection
