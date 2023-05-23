@@ -15,7 +15,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Lista de productos</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Lista de Prendas Predeterminadas</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -42,12 +42,14 @@
                             <td>{{ $clo->brand }}</td>
                             <td>{{ $clo->category->name }}</td>
                             <td>
-                                <a href="{{ route('admin.table.editar', $clo->id) }}"
-                                    class="row justify-content-center"><button class="btn btn-primary" type="submit"><i
-                                            class="bi bi-pencil"></i></button></a></td>
+                                <a href="{{ route('admin.table.edit', $clo->id) }}" class="row justify-content-center">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </a>
+                            </td>
                             <td>
-                                <form action="{{ route('admin.table.eliminar', $clo->id) }}" method="POST"
-                                    class="row justify-content-center">
+                                <form action="{{ route('admin.table.destroy', $clo->id) }}" method="POST" class="row justify-content-center">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-danger" type="submit"><i class="bi bi-trash"></i></button>
