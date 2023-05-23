@@ -16,35 +16,35 @@
         <!-- ===============================================-->
         <!--    Favicons-->
         <!-- ===============================================-->
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/gallery/logo.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/gallery/logo.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/gallery/logo.png">
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/logo.png">
-        <link rel="manifest" href="assets/img/gallery/logo.png">
-        <meta name="msapplication-TileImage" content="assets/img/gallery/logo.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{URL::asset('assets/img/gallery/logo.png')}}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{URL::asset('assets/img/gallery/logo.png')}}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{URL::asset('assets/img/gallery/logo.png')}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('assets/img/gallery/logo.png')}}">
+        <link rel="manifest" href="{{URL::asset('assets/img/gallery/logo.png')}}">
+        <meta name="msapplication-TileImage" content="{{URL::asset('assets/img/gallery/logo.png')}}">
         <meta name="theme-color" content="#ffffff">
 
         <!-- ===============================================-->
         <!--    Stylesheets-->
         <!-- ===============================================-->
-        <link href="assets/css/theme.css" rel="stylesheet" />
+        <link href="{{URL::asset('assets/css/theme.css')}}" rel="stylesheet" />
 
-        <link href="assets/css/custom.css" rel="stylesheet" />
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="{{URL::asset('assets/css/custom.css')}}" rel="stylesheet" />
+        <link href="{{URL::asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
         <!-- ===============================================-->
         <!--    JavaScripts-->
         <!-- ===============================================-->
 
-        <script defer src="assets/vendors/@popperjs/popper.min.js"></script>
-        <script defer src="assets\js\custom.js"></script>
-        <script defer src="assets/vendors/bootstrap/bootstrap.min.js"></script>
-        <script defer src="assets/vendors/is/is.min.js"></script>
+        <script defer src="{{URL::asset('assets/vendors/@popperjs/popper.min.js')}}"></script>
+        <script defer src="{{URL::asset('assets\js\custom.js')}}"></script>
+        <script defer src="{{URL::asset('assets/vendors/bootstrap/bootstrap.min.js')}}"></script>
+        <script defer src="{{URL::asset('assets/vendors/is/is.min.js')}}"></script>
         <script defer src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-        <script defer src="assets/vendors/feather-icons/feather.min.js"></script>
+        <script defer src="{{URL::asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
         <script>
             feather.replace();
         </script>
-        <script defer src="assets/js/theme.js"></script>
+        <script defer src="{{URL::asset('assets/js/theme.js')}}"></script>
 
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800;900&amp;display=swap"
             rel="stylesheet">
@@ -60,7 +60,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
         <div class="container">
             <a class="navbar-brand d-inline-flex" href="/">
-                <img class="d-inline-block" src="assets/img/gallery/logo.png" alt="logo" />
+                <img class="d-inline-block" src="{{URL::asset('assets/img/gallery/logo.png')}}" alt="logo" />
                 <span class="text-1000 fs-0 fw-bold ms-2">SUITIT</span>
             </a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"

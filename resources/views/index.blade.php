@@ -24,7 +24,7 @@
                         
                             <a class="carta" href="armario/{{$category->name}}">
                                 <div class="carta__background"
-                                    style="background-image:url(assets/img/gallery/fondocamisetas.png)"></div>
+                                    style="background-image:url(assets/img/gallery/{{$category->image}})"></div>
                                 <div class="carta__content">
                                     <p class="carta__category">Categoría</p>
                                     <h3 class="carta__heading">Encuentra tus {{ $category->name}}</h3>
@@ -73,7 +73,7 @@
                       @foreach ($chunk as $clo)
                         <div class="col-sm-6 col-md-3 mb-3 mb-md-0">
                           <div class="card rounded text-white">
-                            <img class="card-img-top" src="assets/img/gallery/shirt-1.png" alt="...">
+                            <img class="card-img-top" src="assets/img/gallery/{{$clo->image}}" alt="...">
                             <div class="card-body text-center">
                               <h5 class="card-title fw-bold text-truncate text-center">{{$clo->name}}</h5>
                               <a href="{{ route('wardrobe.addArticle', [$clo->id, 1]) }}" class="btn-sm button mt-2 text-center justify-center text-decoration-none">

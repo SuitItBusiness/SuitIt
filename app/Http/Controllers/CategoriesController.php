@@ -20,7 +20,7 @@ class CategoriesController extends Controller
         $category = Category::where('name', $categoryName)->first();
 
         $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
-        $clothes = $wardrobe->clothes()->where('category_id', $category->id)->paginate(8);
+        $clothes = $wardrobe->clothes()->where('category_id', $category->id)->get();
         $totalPrice = 0;
         foreach ($clothes as $cloth){
             $totalPrice += $cloth->price * $cloth->pivot->quantity;

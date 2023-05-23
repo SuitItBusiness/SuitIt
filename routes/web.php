@@ -27,7 +27,7 @@ Route::get('/importGeneral', [ WardrobesController::class,'importGeneralArticles
 //Armario routes
 
 Route::prefix('armario')->middleware('auth')->group(function () {
-    Route::get('/', [ ClothesController::class,'showClothesArmario'])->name('armario');
+    Route::get('/', [ WardrobesController::class,'showClothesWardrobe'])->name('armario');
     Route::get('/{name}', [ CategoriesController::class,'filterByCategory'])->name('filteredClothes');
 });
 //Login y Register routes
