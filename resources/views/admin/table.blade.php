@@ -24,9 +24,7 @@
                             <tr>
                                 <td>ID</td>
                                 <td>Nombre</td>
-                                <td>Precio</td>
                                 <td>Color</td>
-                                <td>Marca</td>
                                 <td>Categoría</td>
                                 <td>Editar</td>
                                 <td>Eliminar</td>
@@ -37,9 +35,7 @@
                         <tr>
                             <td>{{ $clo->id }}</td>
                             <td>{{ $clo->name }}</td>
-                            <td>{{ $clo->price }}</td>
                             <td>{{ $clo->color }}</td>
-                            <td>{{ $clo->brand }}</td>
                             <td>{{ $clo->category->name }}</td>
                             <td>
                                 <a href="{{ route('admin.table.edit', $clo->id) }}" class="row justify-content-center">
