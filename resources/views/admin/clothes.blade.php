@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('content')
+
     <form action="{{ route('admin.table.save', $clothes->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @if ($errors->any())
@@ -10,6 +11,7 @@
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
+
             </div>
         @endif
         <div class="container container-fluid mt-5">
@@ -20,12 +22,14 @@
                         required>
                 </div>
 
+
                 <div class="col-4 form-group">
                     <label for="color">Color:</label>
                     <input type="text" name="color" id="color" class="form-control" value="{{ $clothes->color }}"
                         required>
                 </div>
             </div>
+
 
             <div class="row">
                 <div class="col-4 form-group">
