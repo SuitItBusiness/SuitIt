@@ -45,7 +45,7 @@
                 <label for="category">Categoría:</label>
                 <select name="category_id" id="category" class="form-control" value="{{$clothes->season}}" required>
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" {{$category->id == $clothes->category_id ? 'selected' : ''}}>{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>
