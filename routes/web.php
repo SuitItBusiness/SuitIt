@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ClothesController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WardrobesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +48,7 @@ Route::prefix('account')->middleware('verified')->group(function () {
 
     # Users profile
     Route::get('/profile', [AccountController::class, 'profile'])->name('account.profile');
-    Route::post('/profile', [AccountController::class, 'updateProfile'])->name('account.profile.update');
+    Route::post('/profile', [AccountController::class, 'updateProfile'])->name('profile.update');
 });
 
 // Admin routes

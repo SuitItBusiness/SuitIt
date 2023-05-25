@@ -1,11 +1,14 @@
 <?php 
+namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
 
     public function index(Request $request) {
-        return view('account.container', ['view' => 'index', 'user' => $request->user()]);
+        return view('account', ['view' => 'index', 'user' => $request->user()]);
     }
     
     public function profile(Request $request)
@@ -16,6 +19,6 @@ class AccountController extends Controller
             return back()->with('success', __('Settings saved.'));
         }
 
-        return view('account.container', ['view' => 'profile', 'user' => $request->user()]);
+        return view('profile', [ 'user' => $request->user()]);
     }
 }
