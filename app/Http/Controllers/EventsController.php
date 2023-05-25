@@ -9,10 +9,8 @@ use App\Models\Clothes;
 
 class EventsController extends Controller
 {
-    public function addArticle($id, $eventId)
+    public static function addArticle($clothes, $id)
     {
-        $event = Event::findOrFail($eventId);
-
-        $event->clothes()->attach($id);
+        $clothes->events()->attach($id);
     }
 }

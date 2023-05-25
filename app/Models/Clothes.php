@@ -15,7 +15,7 @@ class Clothes extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function event()
+    public function events()
     {
         return $this->belongsToMany(Event::class);
     }

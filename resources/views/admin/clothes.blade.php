@@ -65,12 +65,13 @@
                 </div>
 
             </div>
-            {{-- <div class="col-4 form-group">
-                <div class="form-check">
-                    <input type="checkbox" name="general" id="general" class="form-check-input" value="1" hidden>
-                    <label class="form-check-label" for="general"></label>
-                </div>
-            </div> --}}
+            <div id="checkboxes" name="events">
+                @foreach ($events as $event)
+                    <label class="d-flex py-1 px-3 gap-2" for="{{ $event->name }}">{{ $event->name }}
+                        <input type="checkbox" id="{{ $event->name }}" name="event[]"
+                            value="{{ $event->id }}" {{ old('state') == '1' ? 'checked' : '' }}></label>
+                @endforeach
+            </div>
 
             <button type="submit" class="btn btn-primary mt-5">Guardar</button>
         </div>

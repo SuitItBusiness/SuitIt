@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Event;
 use App\Models\Clothes;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\EventsController;
 
 
 class AdminController extends Controller
@@ -106,13 +108,14 @@ class AdminController extends Controller
     public function editClothes($id=null)
     {
         $categories = Category::all();
+        $events = Event::all();
         if($id){
             $clothes = Clothes::where('id', $id)->firstOrFail();
 
-        return view('admin.clothes', ['view' => 'clothes', 'clothes' => $clothes, 'categories' => $categories]);
+        return view('admin.clothes', ['view' => 'clothes', 'clothes' => $clothes, 'categories' => $categories, 'events' => $events]);
         }else{
 
-        return view('admin.createClothes', ['view' => 'clothes', 'categories' => $categories]);
+        return view('admin.createClothes', ['view' => 'clothes', 'categories' => $categories, 'events' => $events]);
         }
 
     }
@@ -157,11 +160,33 @@ class AdminController extends Controller
             $clothes->image = $imageName;
             $clothes->save();
 
-            if ($id)
+            // UPDATE
+            if ($id){
+                $clothes->events()->detach();
+
+                if(count($request->event) ==1){
+                    EventsController::addArticle($clothes, $request->event);
+                }else{
+                    foreach ($request->event as $event) {
+                        EventsController::addArticle($clothes, $event);
+                    }
+                }
+
                 return redirect()->route('admin.table', $id)->with('success', __('Settings saved.'));
-            else
+            }
+            // CREATE
+            else{
+
+            if(count($request->event) ==1){
+                EventsController::addArticle($clothes, $request->event);
+            }else{
+                foreach ($request->event as $event) {
+                    EventsController::addArticle($clothes, $event);
+                }
+            }
+
                 return redirect()->route('admin.table')->with('success', __(':name has been created.', ['name' => $request->input('name')]));
-        } else {
+        }} else {
             $errors = $request->errors();
             return back()->with('errors', $errors);
         }
