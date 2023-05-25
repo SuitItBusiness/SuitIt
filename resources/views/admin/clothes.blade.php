@@ -7,19 +7,19 @@
         <div class="row">
             <div class="col-4 form-group">
                 <label for="name">Nombre:</label>
-                <input type="text" name="name" id="name" class="form-control" value="{{$clothes->name}}" required>
+                <input type="text" name="name" id="name" class="form-control" value="{{isset($clothes->name)}}" required>
             </div>
     
             <div class="col-4 form-group">
                 <label for="color">Color:</label>
-                <input type="text" name="color" id="color" class="form-control" value="{{$clothes->color}}" required>
+                <input type="text" name="color" id="color" class="form-control" value="{{isset($clothes->color)}}" required>
             </div>
         </div>
 
         <div class="row">
             <div class="col-4 form-group">
                 <label for="season">Temporada:</label>
-                <select name="season" id="season" class="form-control" value="{{$clothes->season}}" required>
+                <select name="season" id="season" class="form-control" value="{{isset($clothes->season)}}" required>
                     <option value="summer">Verano</option>
                     <option value="winter">Invierno</option>
                     <option value="all">Todo el año</option>
@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-4 form-group">
                 <label for="comfort_level">Nivel de comodidad:</label>
-                <input type="number" name="comfort_level" id="comfort_level" class="form-control" value="{{$clothes->comfort_level}}" required>
+                <input type="number" name="comfort_level" id="comfort_level" class="form-control" value="{{isset($clothes->comfort_level)}}" required>
             </div>
     
     
@@ -45,7 +45,7 @@
                 <label for="category">Categoría:</label>
                 <select name="category_id" id="category" class="form-control" value="{{$clothes->season}}" required>
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}" {{$category->id == $clothes->category_id ? 'selected' : ''}}>{{ $category->name }}</option>
+                        <option value="{{ isset($category->id) }}" {{$category->id == $clothes->category_id ? 'selected' : ''}}>{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>

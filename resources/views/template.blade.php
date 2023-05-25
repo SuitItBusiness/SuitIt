@@ -35,7 +35,7 @@
         <!--    JavaScripts-->
         <!-- ===============================================-->
 
-        <script defer src="{{URL::asset('assets/vendors/@popperjs/popper.min.js')}}"></script>
+        <script defer src="{{URL::asset('assets/vendors/popperjs/popper.min.js')}}"></script>
         <script defer src="{{URL::asset('assets\js\custom.js')}}"></script>
         <script defer src="{{URL::asset('assets/vendors/bootstrap/bootstrap.min.js')}}"></script>
         <script defer src="{{URL::asset('assets/vendors/is/is.min.js')}}"></script>
@@ -90,7 +90,7 @@
                                 </li>
                             @elseif (Auth::user()->role == 'user')
                                 <li>
-                                    <a class="dropdown-item px-2 text-hover-white" href=""><i
+                                    <a class="dropdown-item px-2 text-hover-white" href="{{ route('account.profile') }}"><i
                                             class="bi bi-person-circle"></i> Panel de usuario</a>
                                 </li>
                             @endif

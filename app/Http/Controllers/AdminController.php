@@ -135,7 +135,6 @@ class AdminController extends Controller
             $errors = $request->has('errors');
 
             if (!$errors) {
-
             $clothes->name = $request->input('name');
             $clothes->color = $request->input('color');
             $clothes->brand = $request->input('brand');
