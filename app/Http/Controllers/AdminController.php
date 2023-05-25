@@ -125,8 +125,16 @@ class AdminController extends Controller
                 'season' => 'required',
                 'category' => 'required'
             ]);
-            
-            $clothes = new Clothes();
+
+            if ($id)
+                $clothes = Clothes::findOrFail($id);
+            else
+                $clothes = new Clothes();
+
+
+            $errors = $request->has('errors');
+
+            if (!$errors) {
 
             $clothes->name = $request->input('name');
             $clothes->color = $request->input('color');
@@ -142,10 +150,14 @@ class AdminController extends Controller
             $clothes->image = $imageName;
             $clothes->save();
 
-        if ($id)
-            return redirect()->route('admin.table', $id)->with('success', __('Settings saved.'));
-        else
-            return redirect()->route('admin.table')->with('success', __(':name has been created.', ['name' => $request->input('name')]));
+            if ($id)
+                return redirect()->route('admin.table', $id)->with('success', __('Settings saved.'));
+            else
+                return redirect()->route('admin.table')->with('success', __(':name has been created.', ['name' => $request->input('name')]));
+        } else {
+            $errors = $request->errors();
+            return back()->with('errors', $errors);
+        }
     }
 
     // Delete clothes completly
