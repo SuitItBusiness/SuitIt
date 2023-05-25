@@ -137,8 +137,9 @@ class AdminController extends Controller
             $clothes->general = isset($request->general) ? 1 : 0;
             $clothes->category_id = $request->input('category_id');
 
+            $clothes->save();
             $imageName = "image-" . $clothes->id . '.' . $request->image->extension();
-            $request->image->move(public_path('assets\img'), $imageName);
+            $request->image->move(public_path('assets\img\gallery'), $imageName);
             $clothes->image = $imageName;
             $clothes->save();
 
@@ -174,89 +175,89 @@ class AdminController extends Controller
         return redirect()->route('admin.clothes')->with('success', __('Settings saved.'));
     }
 
-    public function indexCategories(Request $request)
-    {
-        $search = $request->input('search');
-        $searchBy = in_array($request->input('search_by'), ['name', 'description']) ? $request->input('search_by') : 'name';
-        $sortBy = in_array($request->input('sort_by'), ['id', 'name', 'description']) ? $request->input('sort_by') : 'id';
-        $sort = in_array($request->input('sort'), ['asc', 'desc']) ? $request->input('sort') : 'desc';
-        $perPage = in_array($request->input('per_page'), [10, 25, 50, 100]) ? $request->input('per_page') : config('settings.paginate');
+    // public function indexCategories(Request $request)
+    // {
+    //     $search = $request->input('search');
+    //     $searchBy = in_array($request->input('search_by'), ['name', 'description']) ? $request->input('search_by') : 'name';
+    //     $sortBy = in_array($request->input('sort_by'), ['id', 'name', 'description']) ? $request->input('sort_by') : 'id';
+    //     $sort = in_array($request->input('sort'), ['asc', 'desc']) ? $request->input('sort') : 'desc';
+    //     $perPage = in_array($request->input('per_page'), [10, 25, 50, 100]) ? $request->input('per_page') : config('settings.paginate');
 
-        $categories = Category::when($search, function ($query) use ($search, $searchBy) {
-            if ($searchBy == 'description') {
-                return $query->searchDescription($search);
-            }
-            return $query->searchName($search);
-        })
-            ->orderBy($sortBy, $sort)
-            ->paginate($perPage)
-            ->appends(['search' => $search, 'search_by' => $searchBy, 'sort_by' => $sortBy, 'sort' => $sort, 'per_page' => $perPage]);
+    //     $categories = Category::when($search, function ($query) use ($search, $searchBy) {
+    //         if ($searchBy == 'description') {
+    //             return $query->searchDescription($search);
+    //         }
+    //         return $query->searchName($search);
+    //     })
+    //         ->orderBy($sortBy, $sort)
+    //         ->paginate($perPage)
+    //         ->appends(['search' => $search, 'search_by' => $searchBy, 'sort_by' => $sortBy, 'sort' => $sort, 'per_page' => $perPage]);
 
-        return view('admin.container', ['view' => 'admin.categories.list', 'categories' => $categories]);
-    }
+    //     return view('admin.container', ['view' => 'admin.categories.list', 'categories' => $categories]);
+    // }
 
-    public function editCategory($id)
-    {
-        $category = Category::findOrFail($id);
+    // public function editCategory($id)
+    // {
+    //     $category = Category::findOrFail($id);
 
-        return view('admin.container', ['view' => 'categories.edit', 'category' => $category]);
-    }
+    //     return view('admin.container', ['view' => 'categories.edit', 'category' => $category]);
+    // }
 
     // Función para guardar o actualizar un registro de Category
-    public function saveCategory(SaveCategoryRequest $request, $id = null)
-    {
-        if ($id)
-            $category = Category::findOrFail($id);
-        else
-            $category = new Category();
+//     public function saveCategory(SaveCategoryRequest $request, $id = null)
+//     {
+//         if ($id)
+//             $category = Category::findOrFail($id);
+//         else
+//             $category = new Category();
 
-        $category->name = $request->input('name');
-        $category->description = $request->input('description');
-        $category->save();
+//         $category->name = $request->input('name');
+//         $category->description = $request->input('description');
+//         $category->save();
 
-        if ($id)
-            return redirect()->route('admin.categories.edit', $id)->with('success', __('Settings saved.'));
-        else
-            return redirect()->route('admin.categories')->with('success', __(':name has been created.', ['name' => $request->input('name')]));
-    }
+//         if ($id)
+//             return redirect()->route('admin.categories.edit', $id)->with('success', __('Settings saved.'));
+//         else
+//             return redirect()->route('admin.categories')->with('success', __(':name has been created.', ['name' => $request->input('name')]));
+//     }
 
-    // Delete category completly
-    public function destroyCategory(Request $request, $id)
-    {
-        $category = Category::findOrFail($id);
+//     // Delete category completly
+//     public function destroyCategory(Request $request, $id)
+//     {
+//         $category = Category::findOrFail($id);
 
-        $category->delete();
+//         $category->delete();
 
-        return redirect()->route('admin.categories')->with('success', __(':name has been deleted.', ['name' => $category->name]));
-    }
+//         return redirect()->route('admin.categories')->with('success', __(':name has been deleted.', ['name' => $category->name]));
+//     }
 
-    /**
-     * Soft delete the Category.
-     *
-     * @param Request $request
-     * @param $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    public function disableCategory(Request $request, $id)
-    {
-        $category = Category::findOrFail($id);
+//     /**
+//      * Soft delete the Category.
+//      *
+//      * @param Request $request
+//      * @param $id
+//      * @return \Illuminate\Http\RedirectResponse
+//      * @throws \Exception
+//      */
+//     public function disableCategory(Request $request, $id)
+//     {
+//         $category = Category::findOrFail($id);
 
-        $category->delete();
-        return redirect()->route('admin.categories')->with('success', __('Settings saved.'));
-    }
+//         $category->delete();
+//         return redirect()->route('admin.categories')->with('success', __('Settings saved.'));
+//     }
 
-    /**
-     * Restore the soft deleted Category.
-     *
-     * @param $id
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function restoreCategory($id)
-    {
-        $category = Category::withTrashed()->findOrFail($id);
-        $category->restore();
+//     /**
+//      * Restore the soft deleted Category.
+//      *
+//      * @param $id
+//      * @return \Illuminate\Http\RedirectResponse
+//      */
+//     public function restoreCategory($id)
+//     {
+//         $category = Category::withTrashed()->findOrFail($id);
+//         $category->restore();
 
-        return redirect()->route('admin.categories')->with('success', __('Settings saved.'));
-    }
+//         return redirect()->route('admin.categories')->with('success', __('Settings saved.'));
+//     }
 }

@@ -12,7 +12,7 @@ class ClothesController extends Controller
     public function showClothes()
     {
 
-        $clothes = Clothes::where('general', true)->get(); // Nos saca todos las prendas de la BBDD
+        $clothes = Clothes::where('general', true)->get(); // Nos saca todos las prendas generales de la BBDD
         return view('index', @compact('clothes'));
 
     }
@@ -42,8 +42,9 @@ class ClothesController extends Controller
             $article->comfort_level = $request['comfort_level'];
             $article->category_id = $request['category'];
 
+            $article->save();
             $imageName = "image-" . $article->id . '.' . $request->image->extension();
-            $request->image->move(public_path('assets\img'), $imageName);
+            $request->image->move(public_path('assets\img\gallery'), $imageName);
             $article->image = $imageName;
 
             $article->save();
@@ -57,6 +58,8 @@ class ClothesController extends Controller
             return back()->with('errors', $errors);
         }
     }
+
+
 }
  ?>
 

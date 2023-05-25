@@ -33,6 +33,7 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             // "birthdate" => 'after_or_equals:01/01/1923',
+            'occupation' => ['required'],
             'password' => $this->passwordRules(),
         ])->validate();
 
