@@ -7,19 +7,19 @@
         <div class="row">
             <div class="col-4 form-group">
                 <label for="name">Nombre:</label>
-                <input type="text" name="name" id="name" class="form-control" required>
+                <input type="text" name="name" id="name" class="form-control" value="{{$clothes->name}}" required>
             </div>
     
             <div class="col-4 form-group">
                 <label for="color">Color:</label>
-                <input type="text" name="color" id="color" class="form-control" required>
+                <input type="text" name="color" id="color" class="form-control" value="{{$clothes->color}}" required>
             </div>
         </div>
 
         <div class="row">
             <div class="col-4 form-group">
                 <label for="season">Temporada:</label>
-                <select name="season" id="season" class="form-control" required>
+                <select name="season" id="season" class="form-control" value="{{$clothes->season}}" required>
                     <option value="summer">Verano</option>
                     <option value="winter">Invierno</option>
                     <option value="all">Todo el año</option>
@@ -30,20 +30,20 @@
                 <label for="image">Imagen<span class="text-danger">*</span></label>
                 <input class="form-control" id="image" type="file" name="image" placeholder="Imagen"
                     accept="image/png, image/jpeg, image/webp" data-sb-validations="required"
-                    value="{{ old('image') }}" required />
+                    value="{{ old('image')}}" required />
             </div>
         </div>
 
         <div class="row">
             <div class="col-4 form-group">
                 <label for="comfort_level">Nivel de comodidad:</label>
-                <input type="number" name="comfort_level" id="comfort_level" class="form-control" required>
+                <input type="number" name="comfort_level" id="comfort_level" class="form-control" value="{{$clothes->comfort_level}}" required>
             </div>
     
     
             <div class="col-4 form-group">
                 <label for="category">Categoría:</label>
-                <select name="category_id" id="category" class="form-control" required>
+                <select name="category_id" id="category" class="form-control" value="{{$clothes->season}}" required>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
