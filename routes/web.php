@@ -55,28 +55,30 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     # Users
     Route::get('/users', [AdminController::class, 'indexUsers'])->name('admin.users');
     Route::get('/users/new', [AdminController::class, 'createUser'])->name('admin.users.new');
-    Route::get('/users/{id}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
-    Route::post('/users/{id}/edit', [AdminController::class, 'updateUser']);
-    Route::post('/users/{id}/destroy', [AdminController::class, 'destroyUser'])->name('admin.users.destroy');
-    Route::get('/users/{id}/disable', [AdminController::class, 'disableUser'])->name('admin.users.disable');
-    Route::get('/users/{id}/restore', [AdminController::class, 'restoreUser'])->name('admin.users.restore');
+    Route::get('/users/edit/{id}', [AdminController::class, 'editUser'])->name('admin.users.edit');
+    Route::post('/users/edit/{id}', [AdminController::class, 'updateUser']);
+    Route::post('/users/destroy/{id}', [AdminController::class, 'destroyUser'])->name('admin.users.destroy');
+    Route::get('/users/disable/{id}', [AdminController::class, 'disableUser'])->name('admin.users.disable');
+    Route::get('/users/restore/{id}', [AdminController::class, 'restoreUser'])->name('admin.users.restore');
 
     # Clothes
     Route::get('/', [AdminController::class, 'indexClothes'])->name('admin.table');
-    Route::get('/clothes/{id}/edit', [AdminController::class, 'editClothes'])->name('admin.table.edit');
-    Route::post('/clothes/{id}/edit', [AdminController::class, 'saveClothes'])->name('admin.table.save');
-    Route::delete('/clothes/{id}/destroy', [AdminController::class, 'destroyClothes'])->name('admin.table.destroy');
-    Route::get('/clothes/{id}/disable', [AdminController::class, 'disableClothes'])->name('admin.table.disable');
-    Route::get('/clothes/{id}/restore', [AdminController::class, 'restoreClothes'])->name('admin.table.restore');
+    Route::get('/clothes/edit/{id?}', [AdminController::class, 'editClothes'])->name('admin.table.edit');
+    Route::post('/clothes/edit/{id?}', [AdminController::class, 'saveClothes'])->name('admin.table.save');
+    Route::get('/clothes/create/{id?}', [AdminController::class, 'editClothes'])->name('admin.table.create');
+    Route::post('/clothes/create/{id?}', [AdminController::class, 'saveClothes'])->name('admin.table.createSave');
+    Route::delete('/clothes/destroy/{id}', [AdminController::class, 'destroyClothes'])->name('admin.table.destroy');
+    Route::get('/clothes/disable/{id}', [AdminController::class, 'disableClothes'])->name('admin.table.disable');
+    Route::get('/clothes/restore/{id}', [AdminController::class, 'restoreClothes'])->name('admin.table.restore');
 
     # Categories
     Route::get('/categories', [AdminController::class, 'indexCategories'])->name('admin.categories');
     Route::get('/categories/new', [AdminController::class, 'createCategory'])->name('admin.categories.new');
-    Route::get('/categories/{id}/edit', [AdminController::class, 'editCategory'])->name('admin.categories.edit');
-    Route::post('/categories/{id}/edit', [AdminController::class, 'updateCategory']);
-    Route::post('/categories/{id}/destroy', [AdminController::class, 'destroyCategory'])->name('admin.categories.destroy');
-    Route::get('/categories/{id}/disable', [AdminController::class, 'disableCategory'])->name('admin.categories.disable');
-    Route::get('/categories/{id}/restore', [AdminController::class, 'restoreCategory'])->name('admin.categories.restore');
+    Route::get('/categories/edit/{id}', [AdminController::class, 'editCategory'])->name('admin.categories.edit');
+    Route::post('/categories/edit/{id}', [AdminController::class, 'updateCategory']);
+    Route::post('/categories/destroy/{id}', [AdminController::class, 'destroyCategory'])->name('admin.categories.destroy');
+    Route::get('/categories/disable/{id}', [AdminController::class, 'disableCategory'])->name('admin.categories.disable');
+    Route::get('/categories/restore/{id}', [AdminController::class, 'restoreCategory'])->name('admin.categories.restore');
 });
 
 Route::get('/index/{id}/{quantity}',[WardrobesController::class, 'addArticle'])->name('wardrobe.addArticle');
