@@ -103,12 +103,18 @@ class AdminController extends Controller
         return view('admin.table', ['clothes' => $clothes]);
     }
 
-    public function editClothes($id)
+    public function editClothes($id=null)
     {
-        $clothes = Clothes::where('id', $id)->firstOrFail();
+        $categories = Category::all();
+        if($id){
+            $clothes = Clothes::where('id', $id)->firstOrFail();
 
-            $categories = Category::all();
         return view('admin.clothes', ['view' => 'clothes', 'clothes' => $clothes, 'categories' => $categories]);
+        }else{
+
+        return view('admin.createClothes', ['view' => 'clothes', 'categories' => $categories]);
+        }
+
     }
 
     public function saveClothes(Request $request, $id = null)
@@ -123,7 +129,7 @@ class AdminController extends Controller
                 'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
                 'comfort_level' => 'required|integer|min:1|max:10',
                 'season' => 'required',
-                'category' => 'required'
+                'category_id' => 'required'
             ]);
 
             if ($id)
@@ -141,7 +147,7 @@ class AdminController extends Controller
             $clothes->season = $request->input('season');
             $clothes->price = $request->input('price');
             $clothes->comfort_level = $request->input('comfort_level');
-            $clothes->general = isset($request->general) ? 1 : 0;
+            $clothes->general = true;
             $clothes->category_id = $request->input('category_id');
 
             $clothes->save();
