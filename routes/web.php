@@ -32,6 +32,14 @@ Route::prefix('armario')->middleware('auth')->group(function () {
     Route::get('/', [ WardrobesController::class,'showClothesWardrobe'])->name('armario');
     Route::get('/{name}', [ CategoriesController::class,'filterByCategory'])->name('filteredClothes');
 });
+
+//Recomendación routes
+
+Route::prefix('armario')->middleware('auth')->group(function () {
+    Route::get('/', [ WardrobesController::class,'showClothesWardrobe'])->name('armario');
+    Route::get('/{name}', [ CategoriesController::class,'filterByCategory'])->name('filteredClothes');
+});
+
 //Login y Register routes
 
     Route::get('/login', function () {

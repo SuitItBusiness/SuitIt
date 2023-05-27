@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+
 .colorPropio{
     color: rgb(94, 15, 167);
 }
@@ -1174,3 +1177,27 @@ h6, .h6 {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+ .titulos{
+    font-size: 10em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Permanent Marker', cursive;
+
+  }
+  .titulo {
+    font-family: 'Permanent Marker', cursive;
+  }
+  @keyframes degrade {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+.letra{
+    font-family: 'Permanent Marker', cursive;
+}
+
+.fondonav{
+    background-color: white;
+}
+    
