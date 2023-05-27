@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 .colorPropio{
     color: rgb(94, 15, 167);
@@ -277,7 +278,7 @@ SECTIONS
 }
 
 .section-gray {
-    background: #E5E5E5;
+    background: #E5E5E5!important;
     padding: 60px 0 30px 0;
 }
 
@@ -699,7 +700,7 @@ BUTTONS
 .navbar .navbar-nav > li > a.btn {
     border: none;
     border-radius: 3px;
-    position: relative;
+    position: absolute;
     padding: 12px 30px;
     margin: 10px 1px;
     font-size: 12px;
@@ -1157,9 +1158,9 @@ h6, .h6 {
     box-shadow:1px 1px 3px rgba(0,0,0,0.3);
   }
   a.button:hover{
-    background:#52ff69;
+    background:#000000;
     border-bottom:3px solid rgb(0, 82, 34);
-    color:#000000;
+    color:#ffffff;
   }
   @media screen and (max-width: 750px) { 
     #columns { column-gap: 0px; }

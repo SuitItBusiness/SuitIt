@@ -5,6 +5,7 @@
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
+
     <div class="main" id="top">
        
         <div class="pb-11 bg-light-gradient border-bottom border-white border-5">
@@ -17,7 +18,7 @@
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
             <div class="container-fluid !direction !spacing  ">
-                <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos"">Busca tus prendas</h3>
+                <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos">Busca tus prendas</h3>
                 <div class="hero-section">
                     <div class="carta-grid">
                         @foreach (\App\Models\Category::all() as $category)
@@ -37,7 +38,7 @@
                     </div>
             </div>
         </div>
-        <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos"">Añadir prendas generales</h3>
+        <h3 class="fs-1 fs-lg-5 lh-sm mb-5 centrado titulos">Añadir prendas generales</h3>
         <div class="d-flex justify-content-center align-items-center">
             <div id="carouselExampleControls" class="carousel slide w-50" data-bs-ride="carousel">
               <div class="carousel-inner">
@@ -94,7 +95,7 @@
           <!-- Modern - Bootstrap Cards -->
           <header>
             </header>
-          <div class="cards-2 section-gray">
+          <div class="cards-2 ">
               <div class="container">
                   <div class="row">
                       <div class="col-md-4">
@@ -149,7 +150,7 @@
           </div>
           <!-- PROFILE CARDS 1 -->
           <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos" >Creadores</h3>
-          <div class="cards-5 section-gray">
+          <div class="cards-5 ">
               <div class="container">
                   <div class="row">
                       <div class="col-md-4">
