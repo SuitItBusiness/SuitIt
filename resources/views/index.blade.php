@@ -17,7 +17,7 @@
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
             <div class="container-fluid !direction !spacing  ">
-                <h3 class="fs-3 fs-lg-5 lh-sm mt-5 centrado">Busca tus prendas</h3>
+                <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos"">Busca tus prendas</h3>
                 <div class="hero-section">
                     <div class="carta-grid">
                         @foreach (\App\Models\Category::all() as $category)
@@ -26,42 +26,18 @@
                                 <div class="carta__background"
                                     style="background-image:url(assets/img/gallery/{{$category->image}})"></div>
                                 <div class="carta__content">
-                                    <p class="carta__category">Categoría</p>
-                                    <h3 class="carta__heading">Encuentra tus {{ $category->name}}</h3>
+                                    <p class="carta__category letra">Categoría</p>
+                                    <h3 class="carta__heading letra">Encuentra tus {{ $category->name}}</h3>
                                 </div>
                             </a>
 
                         @endforeach
-
-                        {{-- <a class="carta" href="#">
-                            <div class="carta__background"
-                                style="background-image:url(assets/img/gallery/fondopantalones.png)"></div>
-                            <div class="carta__content">
-                                <p class="carta__category">Categoría</p>
-                                <h3 class="carta__heading">Encuentra tus camisetas/camisas</h3>
-                            </div>
-                        </a>
-                        <a class="carta" href="#">
-                            <div class="carta__background"
-                                style="background-image:url(assets/img/gallery/fondocamisas.png)"></div>
-                            <div class="carta__content">
-                                <p class="carta__category">Categoría</p>
-                                <h3 class="carta__heading">Encuentra tus pantalones</h3>
-                            </div>
-                        </a>
-                        <a class="carta" href="#">
-                            <div class="carta__background"
-                                style="background-image:url(assets/img/gallery/fondozapatos.png)"></div>
-                            <div class="carta__content">
-                                <p class="carta__category">Categoría</p>
-                                <h3 class="carta__heading">Encuentra tus zapatos</h3>
-                            </div> --}}
                         </a>
                         <div>
                     </div>
             </div>
         </div>
-        <h3 class="fs-3 fs-lg-5 lh-sm mt-5 centrado">Añadir prendas generales</h3>
+        <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos"">Añadir prendas generales</h3>
         <div class="d-flex justify-content-center align-items-center">
             <div id="carouselExampleControls" class="carousel slide w-50" data-bs-ride="carousel">
               <div class="carousel-inner">
@@ -98,12 +74,22 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
                 <span class="visually-hidden">Next</span>
               </button>
-              <a href="{{ route('importGeneral') }}" class="btn-sm button mt-2 text-center justify-center text-decoration-none botonImportar">Importar todas las prendas</a>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                  </div>
+                  <div class="col-sm">
+                    <a href="{{ route('importGeneral') }}" class="btn-sm button mt-2 text-center justify-center text-decoration-none botonImportar">Importar todas las prendas</a>
+                  </div>
+                  <div class="col-sm">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         <!-- <section> close ============================-->
         <!-- ============================================-->
-        <h3 class="fs-3 fs-lg-5 lh-sm mt-5 centrado">Blog de modas</h3> 
+        <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos">Blog de modas</h3> 
         <article class="col-md-12 e">
           <!-- Modern - Bootstrap Cards -->
           <header>
@@ -162,7 +148,7 @@
               </div>
           </div>
           <!-- PROFILE CARDS 1 -->
-          <h3>Creadores</h3>
+          <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos" >Creadores</h3>
           <div class="cards-5 section-gray">
               <div class="container">
                   <div class="row">
