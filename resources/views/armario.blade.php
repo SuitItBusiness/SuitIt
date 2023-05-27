@@ -1,7 +1,7 @@
 @extends('template')
 
 <body>
-    <div class="fondoArmario">
+    <div class="section-gray">
         <div class="container !direction !spacing ">
             <div class="container-fluid !direction !spacing  ">
                 <div class="container">
