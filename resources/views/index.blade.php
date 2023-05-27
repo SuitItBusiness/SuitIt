@@ -101,31 +101,6 @@
               <a href="{{ route('importGeneral') }}" class="btn-sm button mt-2 text-center justify-center text-decoration-none botonImportar">Importar todas las prendas</a>
             </div>
           </div>
-          
-        
-        <section>
-
-            <div class="container">
-              <h3 class="fs-3 fs-lg-5 lh-sm mt-5 centrado">Crea tu estilo</h3>
-                <div class="row h-100 g-0">
-                    <div class="col-md-6">
-                        <div class="bg-300 p-4 h-100 d-flex flex-column justify-content-center">
-                            <h1 class="fw-semi-bold lh-sm fs-4 fs-lg-5 fs-xl-6">Entra al creador de outfits </h1>
-                            <p class="mb-5 fs-1">En el creador de outfits podras encontrar un estilo ideal a corde a tus gustos personales</p>
-                            <div class="d-grid gap-2 d-md-block"><a class="btn btn-lg btn-dark" href="#!"
-                                    role="button">Entrar ya</a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card card-span h-100 text-white"><img class="card-img h-100"
-                                src="assets/img/gallery/sharp-dress.png" alt="..." /><a class="stretched-link"
-                                href="#!"></a></div>
-                    </div>
-                </div>
-            </div>
-            <!-- end of .container-->
-
-        </section>
         <!-- <section> close ============================-->
         <!-- ============================================-->
         <h3 class="fs-3 fs-lg-5 lh-sm mt-5 centrado">Blog de modas</h3> 
@@ -139,7 +114,7 @@
                       <div class="col-md-4">
                           <div class="card card-blog">
                               <div class="card-image">
-                                  <a href="#"> <img class="img img-raised" src="https://images.pexels.com/photos/936722/pexels-photo-936722.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"> </a>
+                                  <a href="#"> <img class="img img-raised" src="https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </a>
                                   <div class="ripple-cont"></div>
                               </div>
                               <div class="table">
@@ -154,12 +129,12 @@
                       <div class="col-md-4">
                           <div class="card card-blog">
                               <div class="card-image">
-                                  <a href="#"> <img class="img img-raised" src="https://images.pexels.com/photos/2422461/pexels-photo-2422461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"> </a>
+                                  <a href="#"> <img class="img img-raised" src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </a>
                               </div>
                               <div class="table">
                                   <h6 class="category text-danger">Mr.Boy</h6>
                                   <h4 class="card-caption">
-                      <a href="#">Karlmond Tang ha sido conocido como uno de los ego-blogs más sofisticados de Reino Unido.</a>
+                      <a href="">Karlmond Tang ha sido conocido como uno de los ego-blogs más sofisticados de Reino Unido.</a>
                     </h4>
                                   <p class="card-description">No nos parece extraño que en cada semana de la moda masculina en Londres sea uno de los influencers más cotizados.
 
@@ -170,12 +145,12 @@
                       <div class="col-md-4">
                           <div class="card card-blog">
                               <div class="card-image">
-                                  <a href="#"> <img class="img img-raised" src="https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"> </a>
+                                  <a href="#"> <img class="img img-raised" src="https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </a>
                               </div>
                               <div class="table">
                                   <h6 class="category text-success">Mariano Di Vaio</h6>
                                   <h4 class="card-caption">
-                      <a href="#">Mariano Di Vaio es el referente del público masculino.</a>
+                      <a href="http://www.avm1959.it/es/brands/mariano_di_vaio-23.html">Mariano Di Vaio es el referente del público masculino.</a>
                     </h4>
                                   <p class="card-description">¡Cuenta con más de cinco millones de seguidores en sus redes sociales!
                                     En su blog podremos encontrar las siguientes temáticas:
@@ -198,8 +173,8 @@
                               </div>
                               <div class="table">
                                   <h4 class="card-caption">Pedro Martín</h4>
-                                  <h6 class="category text-muted">CEO / Co-Founder</h6>
-                                  <p class="card-description"> Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is... </p>
+                                  <h6 class="category text-muted">Desarrollador Web</h6>
+                                  <p class="card-description">Permítanme presentarles a Pedro, un destacado y competente desarrollador web que se distingue por su habilidad técnica y su enfoque meticuloso en cada proyecto. Con una pasión incansable por la programación y una sólida experiencia en el campo del desarrollo web, Pedro se ha ganado una reputación envidiable en la industria.</p>
                                   <div class="ftr">  </div>
                               </div>
                           </div>
@@ -211,8 +186,8 @@
                               </div>
                               <div class="table">
                                   <h4 class="card-caption">Andrés Repiso</h4>
-                                  <h6 class="category text-muted">Front End Developer</h6>
-                                  <p class="card-description"> Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is... </p>
+                                  <h6 class="category text-muted">Desarrollador Web</h6>
+                                  <p class="card-description"> Andrés es un destacado profesional en el campo del desarrollo web, con una amplia experiencia y un enfoque excepcionalmente metódico en su trabajo. Su dedicación y pasión por la programación se reflejan en la calidad y eficiencia de sus proyectos.</p>
                                   <div class="ftr"></div>
                               </div>
                           </div>
@@ -224,8 +199,8 @@
                               </div>
                               <div class="table">
                                   <h4 class="card-caption">Óscar Povea</h4>
-                                  <h6 class="category text-muted">Web Designer</h6>
-                                  <p class="card-description"> Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is... </p>
+                                  <h6 class="category text-muted">Desarrollador Web</h6>
+                                  <p class="card-description"> Es un placer presentar a Óscar, un talentoso y experimentado desarrollador web que ha establecido un sólido reconocimiento en la industria. Su enfoque perfeccionista y su pasión por la creación de soluciones digitales innovadoras lo convierten en un profesional altamente valorado en el campo del desarrollo web.</p>
                                   <div class="ftr"></div>
                               </div>
                           </div>

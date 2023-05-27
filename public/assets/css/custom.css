@@ -1103,36 +1103,6 @@ h6, .h6 {
     }
   }
   
-
-  .columns_2{
-    -webkit-column-count:2;
-    -moz-column-count:2;
-    column-count:2;
-  }
-  .columns_3{
-    -webkit-column-count:3;
-    -moz-column-count:3;
-    column-count:3;
-  }
-  .columns_4{
-    -webkit-column-count:4;
-    -moz-column-count:4;
-    column-count:4;
-  }
-  .columns_5{
-    -webkit-column-count:5;
-    -moz-column-count:5;
-    column-count:5;
-  }
-  #columns {
-      -moz-column-gap: 5px;  
-      -webkit-column-gap: 5px;
-      column-gap: 5px;
-    width: 90%;
-      max-width: 1100px;
-      margin: 50px auto;
-  }
-  
   div#columns figure {
       background: #fefefe;
       border: 2px solid #fcfcfc;
@@ -1141,8 +1111,7 @@ h6, .h6 {
       padding: 15px;
       padding-bottom: 10px;
       transition: all .7s ease-in-out;
-    display: inline-block;
-    column-break-inside: avoid;
+      display: inline-block;
   }
   
   div#columns figure img {
@@ -1169,9 +1138,6 @@ h6, .h6 {
     color: #666; 
     text-decoration: none; 
     transition: .4s color;
-  }
-  div#columns figure:hover{
-    padding: 5px;
   }
   a.button{
     padding:10px;
@@ -1201,4 +1167,10 @@ h6, .h6 {
     text-align: center !important;
     align-self: center !important;
     align-items: center !important;
+}
+
+.fondoArmario{
+    background-image: url('https://images.pexels.com/photos/3377405/pexels-photo-3377405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
