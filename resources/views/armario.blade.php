@@ -13,7 +13,7 @@
                             <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos">Armario</h3>
                         </div>
                         <div class="col-sm">
-                            <h3 class="fs-5 fs-lg-5 lh-sm mt-5 centrado"><a class="button letra" href="#">Añadir prenda</a></h3>
+                            <h3 class="fs-5 fs-lg-5 lh-sm mt-5 centrado"><a class="button letra" href="/añadir">Añadir prenda</a></h3>
                         </div>
                     </div>
                 
