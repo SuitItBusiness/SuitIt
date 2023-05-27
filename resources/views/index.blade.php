@@ -26,8 +26,8 @@
                                 <div class="carta__background"
                                     style="background-image:url(assets/img/gallery/{{$category->image}})"></div>
                                 <div class="carta__content">
-                                    <p class="carta__category">Categoría</p>
-                                    <h3 class="carta__heading">Encuentra tus {{ $category->name}}</h3>
+                                    <p class="carta__category letra">Categoría</p>
+                                    <h3 class="carta__heading letra">Encuentra tus {{ $category->name}}</h3>
                                 </div>
                             </a>
 
@@ -148,7 +148,7 @@
               </div>
           </div>
           <!-- PROFILE CARDS 1 -->
-          <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos">Creadores</h3>
+          <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos" >Creadores</h3>
           <div class="cards-5 section-gray">
               <div class="container">
                   <div class="row">
