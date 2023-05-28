@@ -8,7 +8,7 @@
             <a class="nav-link active" data-toggle="tab" href="#personal-info">{{ __('Información de perfil') }}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#update-info">{{ __('Información de perfil (actualizable)') }}</a>
+            <a class="nav-link" data-toggle="tab" href="#update-info">{{ __('Añadir Dirección') }}</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#change-password">{{ __('Cambiar contraseña') }}</a>
@@ -18,37 +18,29 @@
         <div class="tab-pane fade show active" id="personal-info">
             <div class="card">
                 <div class="card-body">
-                    <form>
+                    <form id="profile-form" action="{{ route('profile.update') }}" class="row g-3 needs-validation" method="POST">
+                        @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
                             <div class="col-md-8">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" readonly>
                             </div>
                         </div>
-
+        
                         <div class="form-group row">
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
                             <div class="col-md-8">
                                 <input id="surname" type="text" class="form-control" name="surname" value="{{ $user->surname }}" readonly>
                             </div>
                         </div>
-
+        
                         <div class="form-group row">
                             <label for="birthdate" class="col-md-4 col-form-label text-md-right">{{ __('Fecha de nacimiento') }}</label>
                             <div class="col-md-8">
                                 <input id="birthdate" type="date" class="form-control" name="birthdate" value="{{ $user->birthdate }}" readonly>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="tab-pane fade" id="update-info">
-            <div class="card">
-                <div class="card-body">
-                    <form method="POST" action="{{ route('profile.update') }}">
-                        @csrf
-
+        
                         <div class="form-group row">
                             <label for="occupation" class="col-md-4 col-form-label text-md-right">{{ __('Ocupación') }}</label>
                             <div class="col-md-8">
@@ -59,25 +51,18 @@
                                 </select>
                             </div>
                         </div>
-
+        
                         <div class="form-group row">
                             <label for="personality" class="col-md-4 col-form-label text-md-right">{{ __('Personalidad') }}</label>
                             <div class="col-md-8">
                                 <input id="personality" type="text" class="form-control" name="personality" value="{{ $user->personality }}">
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Dirección') }}</label>
-                            <div class="col-md-8">
-                                <input id="address" type="text" class="form-control" name="address" value="{{ $user->address }}">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
+        
+                        <div class="form-group row mt-3">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Actualizar información') }}
+                                <button type="submit" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('profile-form').submit();">
+                                    {{ __('Actualizar Perfil') }}
                                 </button>
                             </div>
                         </div>
@@ -85,6 +70,61 @@
                 </div>
             </div>
         </div>
+        
+        <div class="tab-pane fade" id="update-info">
+            <div class="card">
+                <div class="card-body">
+                    <form id="address-form" action="{{ route('profile.address') }}" class="row g-3 needs-validation" method="POST">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="way" class="col-md-4 col-form-label text-md-right">{{ __('Calle') }}</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="way" type="text" name="way" placeholder="Calle" data-sb-validations="required" value="{{ old('way') }}" required />
+                            </div>
+                        </div>
+        
+                        <div class="form-group row">
+                            <label for="number" class="col-md-4 col-form-label text-md-right">{{ __('Número') }}</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="number" type="number" name="number" placeholder="Número" data-sb-validations="required" value="{{ old('number') }}" required />
+                            </div>
+                        </div>
+        
+                        <div class="form-group row">
+                            <label for="town" class="col-md-4 col-form-label text-md-right">{{ __('Municipio') }}</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="town" type="text" name="town" placeholder="Municipio" data-sb-validations="required" value="{{ old('town') }}" required />
+                            </div>
+                        </div>
+        
+                        <div class="form-group row">
+                            <label for="province" class="col-md-4 col-form-label text-md-right">{{ __('Provincia') }}</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="province" type="text" name="province" placeholder="Provincia" data-sb-validations="required" value="{{ old('province') }}" required />
+                            </div>
+                        </div>
+        
+                        <div class="form-group row">
+                            <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('Código Postal') }}</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="zipcode" type="text" name="zipcode" placeholder="Código Postal" data-sb-validations="required" value="{{ old('zipcode') }}" required />
+                            </div>
+                        </div>
+        
+                        <div class="form-group row mt-3">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('address-form').submit();">
+                                    {{ __('Añadir Dirección') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
         <div class="tab-pane fade" id="change-password">
             <div class="card">
                 <div class="card-body">
@@ -123,7 +163,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row mt-3">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Cambiar contraseña') }}
