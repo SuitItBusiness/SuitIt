@@ -36,7 +36,9 @@ Route::prefix('armario')->middleware('auth')->group(function () {
 
 //Recomendación routes
 
-
+Route::get('/recomendaciones', function () {
+    return view('recomendaciones');
+    })->name('recomendacion')->middleware('auth');
 
 //Login y Register routes
 
