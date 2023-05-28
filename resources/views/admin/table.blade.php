@@ -56,9 +56,7 @@
                 </div>
                 <div class="row justify-content-center text-center">
                     <div class="col-2">
-
                         <a href="{{ route('admin.table.create') }}">
-                        
                             <button class="btn btn-primary" type="submit">Crear</button></h3></a>
                     </div>
                 </div>
