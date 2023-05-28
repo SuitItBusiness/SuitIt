@@ -6,6 +6,8 @@ use App\Models\Clothes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\WardrobesController;
 use App\Http\Controllers\EventsController;
+use App\Models\Category;
+use App\Models\Event;
 
 class ClothesController extends Controller
 {
@@ -17,6 +19,12 @@ class ClothesController extends Controller
 
     }
 
+    public function addClothes(){
+        $categories = Category::all();
+        $events = Event::all();
+
+        return view('addClothes', @compact('categories','events'));
+    }
     public function createClothes(Request $request)
     {
         $request->validate([
@@ -39,6 +47,7 @@ class ClothesController extends Controller
             $article->brand = $request['brand'];
             $article->season = $request['season'];
             $article->price = $request['price'];
+            $article->general = false;
             $article->comfort_level = $request['comfort_level'];
             $article->category_id = $request['category'];
 
@@ -49,8 +58,15 @@ class ClothesController extends Controller
 
             $article->save();
 
-            EventsController::addArticle($article->id, $request['event']);
-            WardrobesController::addArticle($article->id, $request['quantity']);
+            if(count($request->event) ==1){
+                EventsController::addArticle($article, $request->event);
+            }else{
+                foreach ($request->event as $event) {
+                    EventsController::addArticle($article, $event);
+                }
+            }
+
+            WardrobesController::addArticle($article->id);
 
             return back()->with('message', 'Artículo añadido correctamente');
         } else {

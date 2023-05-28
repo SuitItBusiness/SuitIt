@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class WardrobesController extends Controller
 {
-    public function addArticle($id, $quantity)
+    public static function addArticle($id, $quantity = 1)
     {
         $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
     
