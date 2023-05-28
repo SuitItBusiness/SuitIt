@@ -32,6 +32,11 @@ Route::prefix('armario')->middleware('auth')->group(function () {
     Route::get('/', [ WardrobesController::class,'showClothesWardrobe'])->name('armario');
     Route::get('/{name}', [ CategoriesController::class,'filterByCategory'])->name('filteredClothes');
 });
+
+//Recomendación routes
+
+
+
 //Login y Register routes
 
     Route::get('/login', function () {
@@ -42,7 +47,7 @@ Route::prefix('armario')->middleware('auth')->group(function () {
         return view('auth.register');
         })->name('register')->middleware('guest');
 
-   // Account routes
+// Account routes
 Route::prefix('account')->middleware('verified')->group(function () {
     Route::get('/', [AccountController::class, 'index'])->name('account');
 
@@ -50,6 +55,12 @@ Route::prefix('account')->middleware('verified')->group(function () {
     Route::get('/profile', [AccountController::class, 'profile'])->name('account.profile');
     Route::post('/profile', [AccountController::class, 'updateProfile'])->name('profile.update');
 });
+
+//AddPrendas routes
+
+Route::get('/añadir', function () {
+    return view('añadirPrendas');
+    })->name('añadir')->middleware('auth');
 
 // Admin routes
 Route::prefix('admin')->middleware('admin')->group(function () {

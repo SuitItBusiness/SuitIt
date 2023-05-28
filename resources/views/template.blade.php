@@ -57,7 +57,7 @@
 
 
 @section('nav')
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block fondonav" data-navbar-on-scroll="data-navbar-on-scroll">
         <div class="container">
             <a class="navbar-brand d-inline-flex" href="/">
                 <img class="d-inline-block" src="{{URL::asset('assets/img/gallery/logo.png')}}" alt="logo" />
@@ -74,7 +74,7 @@
                         <a class="nav-link fw-medium active" aria-current="page" href="/armario">Armario</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link fw-medium" href="#header">Recomendación</a>
+                        <a class="nav-link fw-medium" href="/recomendaciones">Recomendación</a>
                     </li>
                 </ul>
                 @auth

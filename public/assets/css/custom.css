@@ -1,3 +1,7 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 .colorPropio{
     color: rgb(94, 15, 167);
 }
@@ -274,7 +278,7 @@ SECTIONS
 }
 
 .section-gray {
-    background: #E5E5E5;
+    background: #E5E5E5!important;
     padding: 60px 0 30px 0;
 }
 
@@ -696,7 +700,7 @@ BUTTONS
 .navbar .navbar-nav > li > a.btn {
     border: none;
     border-radius: 3px;
-    position: relative;
+    position: absolute;
     padding: 12px 30px;
     margin: 10px 1px;
     font-size: 12px;
@@ -1103,36 +1107,6 @@ h6, .h6 {
     }
   }
   
-
-  .columns_2{
-    -webkit-column-count:2;
-    -moz-column-count:2;
-    column-count:2;
-  }
-  .columns_3{
-    -webkit-column-count:3;
-    -moz-column-count:3;
-    column-count:3;
-  }
-  .columns_4{
-    -webkit-column-count:4;
-    -moz-column-count:4;
-    column-count:4;
-  }
-  .columns_5{
-    -webkit-column-count:5;
-    -moz-column-count:5;
-    column-count:5;
-  }
-  #columns {
-      -moz-column-gap: 5px;  
-      -webkit-column-gap: 5px;
-      column-gap: 5px;
-    width: 90%;
-      max-width: 1100px;
-      margin: 50px auto;
-  }
-  
   div#columns figure {
       background: #fefefe;
       border: 2px solid #fcfcfc;
@@ -1141,8 +1115,7 @@ h6, .h6 {
       padding: 15px;
       padding-bottom: 10px;
       transition: all .7s ease-in-out;
-    display: inline-block;
-    column-break-inside: avoid;
+      display: inline-block;
   }
   
   div#columns figure img {
@@ -1170,9 +1143,6 @@ h6, .h6 {
     text-decoration: none; 
     transition: .4s color;
   }
-  div#columns figure:hover{
-    padding: 5px;
-  }
   a.button{
     padding:10px;
     background:rgb(56, 119, 214);
@@ -1188,9 +1158,9 @@ h6, .h6 {
     box-shadow:1px 1px 3px rgba(0,0,0,0.3);
   }
   a.button:hover{
-    background:#52ff69;
+    background:#000000;
     border-bottom:3px solid rgb(0, 82, 34);
-    color:#000000;
+    color:#ffffff;
   }
   @media screen and (max-width: 750px) { 
     #columns { column-gap: 0px; }
@@ -1202,3 +1172,33 @@ h6, .h6 {
     align-self: center !important;
     align-items: center !important;
 }
+
+.fondoArmario{
+    background-image: url('https://images.pexels.com/photos/3377405/pexels-photo-3377405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+ .titulos{
+    font-size: 10em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Permanent Marker', cursive;
+
+  }
+  .titulo {
+    font-family: 'Permanent Marker', cursive;
+  }
+  @keyframes degrade {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+.letra{
+    font-family: 'Permanent Marker', cursive;
+}
+
+.fondonav{
+    background-color: white;
+}
+    
