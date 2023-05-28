@@ -43,7 +43,7 @@
             <div id="carouselExampleControls" class="carousel slide w-50" data-bs-ride="carousel">
               <div class="carousel-inner">
                 @php $count = 0; @endphp
-                @foreach ($clothes->chunk(4) as $chunk)
+                @foreach ($clothes->chunk(3) as $chunk)
                   @php $active = ($count == 0) ? 'active' : ''; @endphp
                   <div class="carousel-item {{ $active }}">
                     <div class="row justify-content-center">
