@@ -696,7 +696,6 @@ BUTTONS
     border-radius: 4px;
 }
 
-.btn,
 .navbar .navbar-nav > li > a.btn {
     border: none;
     border-radius: 3px;

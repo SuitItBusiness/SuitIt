@@ -126,7 +126,7 @@
                                 <label for="floatingPassword">Confirmar contraseña<span
                                         class="text-danger">*</span></label>
                             </div>
-                            <button class="w-100 btn btn-lg btn-primary" type="submit">Registrarse</button>
+                            <button class="btn btn-lg btn-primary" type="submit">Registrarse</button>
                         </form>
                     </div>
                 </div>
