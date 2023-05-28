@@ -24,7 +24,14 @@
                                 <img src="{{ URL::asset('assets/img/gallery/' . $ropa->image) }}">
                                 <figcaption>{{ $ropa->name }}</figcaption>
                                 <figcaption>{{ $ropa->brand }}</figcaption>
-                                <a class="button" href="#">Recomendación</a>
+                                <div class="row">
+                                    <div class="col-sm-10"><a class="button" href="#">Recomendación</a></div>
+                                    <div class="col-sm-2 mt-4"><form action="" method="POST" class="row justify-content-center">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btn btn-danger" type="submit"><i class="bi bi-trash"></i></button>
+                                    </form></div>
+                                  </div>
                             </figure>
                         </div>
                     @endforeach

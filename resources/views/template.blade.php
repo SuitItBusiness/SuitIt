@@ -21,6 +21,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{{URL::asset('assets/img/gallery/logo.png')}}">
         <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('assets/img/gallery/logo.png')}}">
         <link rel="manifest" href="{{URL::asset('assets/img/gallery/logo.png')}}">
+        <link href="{{URL::asset('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css')}}" rel="stylesheet">
         <meta name="msapplication-TileImage" content="{{URL::asset('assets/img/gallery/logo.png')}}">
         <meta name="theme-color" content="#ffffff">
 
