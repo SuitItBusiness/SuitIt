@@ -7,6 +7,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ClothesController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WardrobesController;
+use App\Http\Controllers\AddressController;
 
 
 /*
@@ -22,15 +23,15 @@ use App\Http\Controllers\WardrobesController;
 
 // Index routes
 
-Route::get('/', [ ClothesController::class,'showClothes'])->name('index')->middleware('auth');
+Route::get('/', [ClothesController::class, 'showClothes'])->name('index')->middleware('auth');
 
-Route::get('/importGeneral', [ WardrobesController::class,'importGeneralArticles'])->name('importGeneral')->middleware('auth');
+Route::get('/importGeneral', [WardrobesController::class, 'importGeneralArticles'])->name('importGeneral')->middleware('auth');
 
 //Armario routes
 
 Route::prefix('armario')->middleware('auth')->group(function () {
-    Route::get('/', [ WardrobesController::class,'showClothesWardrobe'])->name('armario');
-    Route::get('/{name}', [ CategoriesController::class,'filterByCategory'])->name('filteredClothes');
+    Route::get('/', [WardrobesController::class, 'showClothesWardrobe'])->name('armario');
+    Route::get('/{name}', [CategoriesController::class, 'filterByCategory'])->name('filteredClothes');
 });
 
 //Recomendación routes
@@ -41,28 +42,27 @@ Route::get('/recomendaciones', function () {
 
 //Login y Register routes
 
-    Route::get('/login', function () {
-        return view('auth.login');
-        })->name('login')->middleware('guest');
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login')->middleware('guest');
 
-    Route::get('/register', function () {
-        return view('auth.register');
-        })->name('register')->middleware('guest');
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register')->middleware('guest');
 
 // Account routes
 Route::prefix('account')->middleware('verified')->group(function () {
     Route::get('/', [AccountController::class, 'index'])->name('account');
 
+    //AddPrendas routes
+    Route::get('/addClothes', [ClothesController::class, 'addClothes'])->name('addClothes');
+    Route::post('/addClothes', [ClothesController::class, 'createClothes'])->name('addClothes.add');
+
     # Users profile
     Route::get('/profile', [AccountController::class, 'profile'])->name('account.profile');
-    Route::post('/profile', [AccountController::class, 'updateProfile'])->name('profile.update');
+    Route::post('/profile/update', [AccountController::class, 'updateProfile'])->name('profile.update');
+    Route::post('/profile', [AddressController::class, 'saveAddress'])->name('profile.address');
 });
-
-//AddPrendas routes
-
-Route::get('/añadir', function () {
-    return view('añadirPrendas');
-    })->name('añadir')->middleware('auth');
 
 // Admin routes
 Route::prefix('admin')->middleware('admin')->group(function () {
@@ -96,4 +96,4 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/categories/restore/{id}', [AdminController::class, 'restoreCategory'])->name('admin.categories.restore');
 });
 
-Route::get('/index/{id}/{quantity}',[WardrobesController::class, 'addArticle'])->name('wardrobe.addArticle');
+Route::get('/index/{id}/{quantity}', [WardrobesController::class, 'addArticle'])->name('wardrobe.addArticle');

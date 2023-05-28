@@ -35,28 +35,25 @@
                         <div>
                         </div>
                     </div>
-                </div>
-                <h3 class="fs-1 fs-lg-5 lh-sm mb-5 centrado titulos">Añadir prendas generales</h3>
-                <div class="d-flex justify-content-center align-items-center">
-                    <div id="carouselExampleControls" class="carousel slide w-50" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            @php $count = 0; @endphp
-                            @foreach ($clothes->chunk(4) as $chunk)
-                                @php $active = ($count == 0) ? 'active' : ''; @endphp
-                                <div class="carousel-item {{ $active }}">
-                                    <div class="row justify-content-center">
-                                        @foreach ($chunk as $clo)
-                                            <div class="col-sm-6 col-md-3 mb-3 mb-md-0">
-                                                <div class="card rounded text-white">
-                                                    <img class="card-img-top"
-                                                        src="assets/img/gallery/{{ $clo->image }}" alt="...">
-                                                    <div class="card-body text-center">
-                                                        <h5 class="card-title fw-bold text-truncate text-center">
-                                                            {{ $clo->name }}</h5>
-                                                        <a href="{{ route('wardrobe.addArticle', [$clo->id, 1]) }}"
-                                                            class="btn-sm button mt-2 text-center justify-center text-decoration-none">
-                                                            Añadir al armario
-
+            </div>
+        </div>
+        <h3 class="fs-1 fs-lg-5 lh-sm mb-5 centrado titulos">Añadir prendas generales</h3>
+        <div class="d-flex justify-content-center align-items-center">
+            <div id="carouselExampleControls" class="carousel slide w-50" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                @php $count = 0; @endphp
+                @foreach ($clothes->chunk(3) as $chunk)
+                  @php $active = ($count == 0) ? 'active' : ''; @endphp
+                  <div class="carousel-item {{ $active }}">
+                    <div class="row justify-content-center">
+                      @foreach ($chunk as $clo)
+                        <div class="col-sm-6 col-md-3 mb-3 mb-md-0">
+                          <div class="card rounded text-white">
+                            <img class="card-img-top" src="assets/img/gallery/{{$clo->image}}" alt="...">
+                            <div class="card-body text-center">
+                              <h5 class="card-title fw-bold text-truncate text-center">{{$clo->name}}</h5>
+                              <a href="{{ route('wardrobe.addArticle', [$clo->id, 1]) }}" class="btn-sm button mt-2 text-center justify-center text-decoration-none">
+                                Añadir al armario
                                                         </a>
                                                     </div>
                                                 </div>
