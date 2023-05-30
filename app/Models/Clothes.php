@@ -17,16 +17,16 @@ class Clothes extends Model
 
     public function events()
     {
-        return $this->belongsToMany(Event::class);
+        return $this->belongsToMany(Event::class)->withTimestamps();
     }
 
     public function recommendation()
     {
-        return $this->belongsToMany(Recommendation::class);
+        return $this->belongsToMany(Recommendation::class)->withTimestamps();
     }
 
     public function wardrobe()
     {
-        return $this->belongsToMany(Wardrobe::class);
+        return $this->belongsToMany(Wardrobe::class)->withTimestamps();
     }
 }

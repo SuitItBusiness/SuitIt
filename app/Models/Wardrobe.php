@@ -16,6 +16,6 @@ class Wardrobe extends Model
 
     public function clothes()
     {
-        return $this->belongsToMany(Clothes::class);
+        return $this->belongsToMany(Clothes::class)->withTimestamps();
     }
 }

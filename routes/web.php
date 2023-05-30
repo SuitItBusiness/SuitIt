@@ -8,6 +8,7 @@ use App\Http\Controllers\ClothesController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WardrobesController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\RecommendationsController;
 
 
 /*
@@ -47,6 +48,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register');
 })->name('register')->middleware('guest');
+
+Route::get('/pruebaaa', [RecommendationsController::class, 'makeRecommendation']);
 
 // Account routes
 Route::prefix('account')->middleware('verified')->group(function () {

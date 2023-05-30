@@ -11,6 +11,6 @@ class Event extends Model
 
     public function clothes()
     {
-        return $this->belongsToMany(Clothes::class, 'clothes_event');
+        return $this->belongsToMany(Clothes::class, 'clothes_event')->withTimestamps();
     }
 }
