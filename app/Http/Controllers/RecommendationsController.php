@@ -21,12 +21,12 @@ class RecommendationsController extends Controller
         $event = Event::find($eventId);
         $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
         $clothes = $wardrobe->clothes;
-        $eventClothes = $event->clothes();
+        $eventClothes = $event->clothes;
         $eventClothesId = [];
         foreach ($eventClothes as $clt) {
             $eventClothesId[] = $clt->id;
         }
-        return $event;
+
         // Add selected article
         $selectedArticle = $wardrobe->clothes()->where('clothes_id', $articleId)->first();
         $recommendation[] = $selectedArticle;
@@ -37,7 +37,7 @@ class RecommendationsController extends Controller
                     // Añadimos ropa a la recomendacion
 
                     $options = $wardrobe->clothes()->where('category_id', $cat->id)
-                    ->whereIn('id', $eventClothesId)->get();
+                    ->whereIn('clothes.id', $eventClothesId)->get();
                     $recommendation[] = $options[0];
                 }
             }
@@ -47,8 +47,9 @@ class RecommendationsController extends Controller
                     // Añadimos ropa a la recomendacion
 
                     $options = $wardrobe->clothes()->where('category_id', $cat->id)
-                    ->whereIn('id', $eventClothesId)->get();
+                    ->whereIn('clothes.id', $eventClothesId)->get();
                     $recommendation[] = $options[0];
+                    $recommendation[] = '---------------------------------------------';
             }
             }
         }
