@@ -1201,3 +1201,110 @@ h6, .h6 {
     background-color: white;
 }
     
+  .ag-card-bg {
+    height: 100%;
+    width: 200%;
+    background-position: 50%;
+    background-size: cover;
+    
+    position: absolute;
+    top: 0;
+    left: -50%;
+  }
+  .ag-shop-card_box-wrap {
+    padding: 15px;
+  }
+  .ag-shop-card_box {
+    background-color: #FFF;
+    
+    overflow: hidden;
+    
+    -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 35, .25);
+    -moz-box-shadow: 0 10px 20px 0 rgba(0, 0, 35, .25);
+    -o-box-shadow: 0 10px 20px 0 rgba(0, 0, 35, .25);
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 35, .25);
+  
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+  }
+  .ag-shop-card_body {
+    display: block;
+    height:200px;
+    width: 400px;
+    background-position: 50%;
+    background-size: cover;
+    
+    overflow: hidden;
+  
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+    
+    position: relative;
+  }
+
+  .ag-shop-card_body2 {
+    display: block;
+    height:200px;
+    width: 400px;
+    background-position: 50%;
+    background-size: cover;
+    
+    overflow: hidden;
+  
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+    
+    position: relative;
+  }
+
+  .ag-shop-card_footer {
+    padding: 15px 30px;
+    border: 0;
+    background-color: #FFF;
+  
+    position: relative;
+  }
+  .ag-shop-card-footer_title {
+    display: block;
+    line-height: 1.3;
+  
+    font-weight: 700;
+    font-size: 14px;
+    color: #690911;
+  }
+  .ag-shop-card-footer_products {
+    display: block;
+    line-height: 1.3;
+  
+    font-size: 12px;
+  }
+  .ag-shop-card-footer_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    background-color: #ecd500;
+  
+    position: absolute;
+    right: 30px;
+    top: 15px;
+  
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+  }
+  .ag-shop-card-footer_arrow {
+    max-width: 16px;
+  }
+  

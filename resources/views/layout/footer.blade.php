@@ -1,6 +1,6 @@
       <!-- Footer -->
       <footer class="py-0 pt-7">
-        <div class="container">
+        <div class="container section-gray mb-5">
             <div class="row">
                 <div class="col-6 col-lg-2 mb-3">
                     <h5 class="lh-lg fw-bold text-1000">Información</h5>

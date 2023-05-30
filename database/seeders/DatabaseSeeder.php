@@ -240,5 +240,22 @@ class DatabaseSeeder extends Seeder
         foreach ($clothes as $clothing) {
             Clothes::create($clothing);
         }
+
+       $allClothes = Clothes::all();
+       
+        $allClothes[0]->events()->attach([1,3,4]);
+        $allClothes[1]->events()->attach([1]);
+        $allClothes[2]->events()->attach([1,2]);
+        $allClothes[3]->events()->attach([1,3,4]);
+        $allClothes[4]->events()->attach([1,3,4]);
+        $allClothes[5]->events()->attach([3,4]);
+        $allClothes[6]->events()->attach([1,2,5]);
+        $allClothes[7]->events()->attach([2,5]);
+        $allClothes[8]->events()->attach([1,3,4]);
+        $allClothes[9]->events()->attach([1,2]);
+        $allClothes[10]->events()->attach([6]);
+        $allClothes[11]->events()->attach([6]);
+        $allClothes[12]->events()->attach([4,6]);
+        $allClothes[13]->events()->attach([5]);
     }
 }
