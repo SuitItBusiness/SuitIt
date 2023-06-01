@@ -34,6 +34,12 @@
 
                 <div class="container-fluid">
 
+                    @yield('recommendation')
+
+                </div>
+
+                <div class="container-fluid">
+
                     @yield('editar')
 
                 </div>

@@ -54,6 +54,7 @@ class RecommendationsController extends Controller
             }
         }
 
-        return $recommendation;
+        return view('recommendation', ['recommendation' => $recommendation]);
+
     }
 }

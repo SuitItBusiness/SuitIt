@@ -75,7 +75,7 @@
                         <a class="nav-link fw-medium active" aria-current="page" href="/armario">Armario</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link fw-medium" href="/recomendaciones">Recomendación</a>
+                        <a class="nav-link fw-medium" href="/recommendation">Recomendación</a>
                     </li>
                 </ul>
                 @auth
