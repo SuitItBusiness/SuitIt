@@ -16,7 +16,6 @@
                             <h3 class="fs-5 fs-lg-5 lh-sm mt-5 centrado"><a class="button letra" href="{{route('addClothes')}}">Añadir prenda</a></h3>
                         </div>
                     </div>
-                
                 <div class="row">
                     @foreach ($clothes as $ropa)
                         <div id="columns" class="col col-lg-3">
@@ -25,7 +24,7 @@
                                 <figcaption class="mx-3">{{ $ropa->name }}</figcaption>
                                 <figcaption>{{ $ropa->brand }}</figcaption>
                                 {{-- FORMULARIO PARA RECOMENDACIONES --}}
-                                <form action="{{ route('recommendation') }}" method="POST">
+                                <form action="{{ route('wardrobe.recommendation') }}" method="POST">
                                     @csrf
                                     <select name="eventId" id="event" class="form-control"required>
                                         @foreach ($ropa->events as $event)

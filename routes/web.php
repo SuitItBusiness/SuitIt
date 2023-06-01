@@ -34,12 +34,9 @@ Route::prefix('armario')->middleware('auth')->group(function () {
     Route::get('/', [WardrobesController::class, 'showClothesWardrobe'])->name('armario');
 
     Route::get('/category/{name}', [CategoriesController::class, 'filterByCategory'])->name('filteredClothes');
-    Route::post('/pruebaaa', [RecommendationsController::class, 'makeRecommendation'])->name('recommendation');
+    Route::post('/recommendation', [RecommendationsController::class, 'makeRecommendation'])->name('wardrobe.recommendation');
 });
 
-    //Recomendación routes
-    Route::get('/recommendation', [RecommendationsController::class, 'makeRecommendation'])->name('wardrobe.recommendation');
-});
 
 Route::get('/recommendation', function () {
     return view('recommendation');
