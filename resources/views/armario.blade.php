@@ -22,7 +22,7 @@
                         <div id="columns" class="col col-lg-3">
                             <figure>
                                 <img src="{{ URL::asset('assets/img/gallery/' . $ropa->image) }}">
-                                <figcaption>{{ $ropa->name }}</figcaption>
+                                <figcaption class="mx-3">{{ $ropa->name }}</figcaption>
                                 <figcaption>{{ $ropa->brand }}</figcaption>
                                 {{-- FORMULARIO PARA RECOMENDACIONES --}}
                                 <form action="{{ route('recommendation') }}" method="POST">
@@ -36,6 +36,7 @@
                                     </select>
                                     <input name='articleId' value="{{ $ropa->id }}" hidden>
                                 <div class="row">
+
                                     <div class="col-sm-10">
                                         <button class="button" type="submit">Recomendación</button>
                                     </div>

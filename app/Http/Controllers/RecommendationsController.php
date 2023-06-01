@@ -53,6 +53,6 @@ class RecommendationsController extends Controller
             }
         }
 
-        return view('pruebaaa', @compact('recommendation'));
+        return view('recommendation', ['recommendation' => $recommendation]);
     }
 }
