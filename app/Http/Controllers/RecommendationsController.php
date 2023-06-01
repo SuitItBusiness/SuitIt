@@ -13,14 +13,11 @@ class RecommendationsController extends Controller
     //
     public function makeRecommendation(Request $request){
 
-        $eventId = 6;
-        $articleId = 12;
-
         $recommendation = [];
         $categories = Category::all();
-        $event = Event::find($eventId);
+        $event = Event::find($request->eventId);
         $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
-        $clothes = $wardrobe->clothes;
+        // $clothes = $wardrobe->clothes;
         $eventClothes = $event->clothes;
         $eventClothesId = [];
         foreach ($eventClothes as $clt) {
@@ -28,7 +25,7 @@ class RecommendationsController extends Controller
         }
 
         // Add selected article
-        $selectedArticle = $wardrobe->clothes()->where('clothes_id', $articleId)->first();
+        $selectedArticle = $wardrobe->clothes()->where('clothes_id', $request->articleId)->first();
         $recommendation[] = $selectedArticle;
 
         if($selectedArticle->season == 'winter'){
@@ -37,8 +34,10 @@ class RecommendationsController extends Controller
                     // Añadimos ropa a la recomendacion
 
                     $options = $wardrobe->clothes()->where('category_id', $cat->id)
+                    ->where('season', '<>' , 'summer' )
                     ->whereIn('clothes.id', $eventClothesId)->get();
-                    $recommendation[] = $options[0];
+                    $randomOption = rand(0, count($options)-1);
+                    $recommendation[] = $options[$randomOption];
                 }
             }
         }else{
@@ -48,13 +47,12 @@ class RecommendationsController extends Controller
 
                     $options = $wardrobe->clothes()->where('category_id', $cat->id)
                     ->whereIn('clothes.id', $eventClothesId)->get();
-                    $recommendation[] = $options[0];
-                    $recommendation[] = '---------------------------------------------';
+                    $randomOption = rand(0, count($options)-1);
+                    $recommendation[] = $options[$randomOption];
             }
             }
         }
 
         return view('recommendation', ['recommendation' => $recommendation]);
-
     }
 }

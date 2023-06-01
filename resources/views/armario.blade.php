@@ -24,13 +24,31 @@
                                 <img src="{{ URL::asset('assets/img/gallery/' . $ropa->image) }}">
                                 <figcaption class="mx-3">{{ $ropa->name }}</figcaption>
                                 <figcaption>{{ $ropa->brand }}</figcaption>
+                                {{-- FORMULARIO PARA RECOMENDACIONES --}}
+                                <form action="{{ route('recommendation') }}" method="POST">
+                                    @csrf
+                                    <select name="eventId" id="event" class="form-control"required>
+                                        @foreach ($ropa->events as $event)
+                                            <option value="{{ $event->id }}">
+                                                {{ $event->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <input name='articleId' value="{{ $ropa->id }}" hidden>
                                 <div class="row">
-                                    <div class="col-sm-10"><a class="button" href="{{route('wardrobe.recommendation')}}">Recomendación</a></div>
-                                    <div class="col-sm-2 mt-4"><form action="" method="POST" class="row justify-content-center">
+
+                                    <div class="col-sm-10">
+                                        <button class="button" type="submit">Recomendación</button>
+                                    </div>
+                                </form>
+                                    <div class="col-sm-2 mt-4">
+                                        {{-- FORMULARIO PARA BORRAR PRENDAS --}}
+                                    <form action="" method="POST" class="row justify-content-center">
                                         @method('DELETE')
                                         @csrf
                                         <button class="btn btn-danger" type="submit"><i class="bi bi-trash"></i></button>
-                                    </form></div>
+                                    </form>
+                                </div>
                                   </div>
                             </figure>
                         </div>
