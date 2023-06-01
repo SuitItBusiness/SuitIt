@@ -32,7 +32,8 @@ Route::get('/importGeneral', [WardrobesController::class, 'importGeneralArticles
 
 Route::prefix('armario')->middleware('auth')->group(function () {
     Route::get('/', [WardrobesController::class, 'showClothesWardrobe'])->name('armario');
-    Route::get('/{name}', [CategoriesController::class, 'filterByCategory'])->name('filteredClothes');
+    Route::get('/category/{name}', [CategoriesController::class, 'filterByCategory'])->name('filteredClothes');
+    Route::post('/pruebaaa', [RecommendationsController::class, 'makeRecommendation'])->name('recommendation');
 });
 
 //Recomendación routes
@@ -50,8 +51,6 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register');
 })->name('register')->middleware('guest');
-
-Route::get('/pruebaaa', [RecommendationsController::class, 'makeRecommendation']);
 
 // Account routes
 Route::prefix('account')->middleware('verified')->group(function () {
