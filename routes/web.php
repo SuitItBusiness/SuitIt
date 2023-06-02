@@ -42,6 +42,7 @@ Route::get('/recommendation', function () {
     return view('recommendation');
 })->name('recommendation')->middleware('auth');
 
+
 //Login y Register routes
 
 Route::get('/login', function () {
