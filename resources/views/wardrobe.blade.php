@@ -16,6 +16,13 @@
                             <h3 class="fs-5 fs-lg-5 lh-sm mt-5 centrado"><a class="button letra" href="{{route('addClothes')}}">Añadir prenda</a></h3>
                         </div>
                     </div>
+                    @if (strlen($errors) > 2)
+                    <div class="alert alert-danger">
+                        <ul>
+                            <li>{{ $errors }}</li>
+                        </ul>
+                    </div>
+                    @endif
                 <div class="row">
                     @foreach ($clothes as $ropa)
                         <div id="columns" class="col col-lg-3">
