@@ -28,7 +28,6 @@
                                 <th>Personalidad</th>
                                 <th>Email</th>
                                 <th>Rol</th>
-                                <th>Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,13 +41,6 @@
                                     <td>{{ $user->personality }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->role }}</td>
-                                    <td>
-                                        @if ($user->trashed())
-                                            <a class="btn btn-success" href="{{ route('admin.users.restore',$user->id) }}"><i class="fa-solid fa-eye"></i></a>
-                                        @else
-                                            <a class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#modal" data-action="{{ route('admin.users.disable', $user->id) }}" data-title="{{ __('Delete') }}" data-text="{{ __('Are you sure you want to disable :name?', ['name' => $user->name]) }}"><i class="fa-regular fa-trash-can"></i></a>
-                                        @endif
-                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

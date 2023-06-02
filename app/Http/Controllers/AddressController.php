@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -20,15 +21,10 @@ class AddressController extends Controller
             'province' => 'required|string|min:2|max:255',
             'zipcode' => 'required|integer',
         ]);
-    
-        if ($id) {
-            $address = Address::findOrFail($id);
-        } else {
-            $address = new Address();
-        }
 
         $user = Auth::user()->id;
-    
+
+        $address = Address::findOrFail($user);
         $address->user_id = $user;
         $address->way = $request->input('way');
         $address->number = $request->input('number');
@@ -36,12 +32,9 @@ class AddressController extends Controller
         $address->province = $request->input('province');
         $address->zipcode = $request->input('zipcode');
         $address->save();
-    
-        if ($id) {
-            return redirect()->route('admin.table', $id)->with('success', __('Address updated.'));
-        } else {
-            return redirect()->route('admin.table')->with('success', __('Address created.'));
-        }
+
+
+
+        return back()->with('success', __('Address updated.'));
     }
-    
 }

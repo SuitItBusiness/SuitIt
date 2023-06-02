@@ -32,6 +32,7 @@ Route::get('/importGeneral', [WardrobesController::class, 'importGeneralArticles
 
 Route::prefix('wardrobe')->middleware('auth')->group(function () {
     Route::get('/', [WardrobesController::class, 'showClothesWardrobe'])->name('wardrobe');
+    Route::post('/delete', [WardrobesController::class, 'deleteClothes'])->name('wardrobe.delete');
 
     Route::get('/category/{name}', [CategoriesController::class, 'filterByCategory'])->name('filteredClothes');
     Route::post('/recommendation', [RecommendationsController::class, 'makeRecommendation'])->name('wardrobe.recommendation');

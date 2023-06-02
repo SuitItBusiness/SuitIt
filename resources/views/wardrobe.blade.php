@@ -24,7 +24,7 @@
                     </div>
                     @endif
                 <div class="row">
-                    @foreach ($clothes as $ropa)
+                    @foreach ($clothes as $ropa) 
                         <div id="columns" class="col col-lg-3">
                             <figure>
                                 <img src="{{ URL::asset('assets/img/gallery/' . $ropa->image) }}">
@@ -49,8 +49,8 @@
                                     <div class="col-sm-2 mt-4">
 
                                         {{-- FORMULARIO PARA BORRAR PRENDAS --}}
-                                    <form action="" method="POST" class="row justify-content-center">
-                                        @method('DELETE')
+                                    <form action="{{route('wardrobe.delete')}}" method="POST" class="row justify-content-center">
+                                        <input name="id" value="{{$ropa->id}}" hidden>
                                         @csrf
                                         <button class="buttonDelete" type="submit"><i class="bi bi-trash"></i></button>
                                     </form>
@@ -58,7 +58,7 @@
                                   </div>
                             </figure>
                         </div>
-                    @endforeach
+                    @endforeach 
                 </div>
             </div>
         </div>
