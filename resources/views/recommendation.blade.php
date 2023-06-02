@@ -31,19 +31,30 @@
                         @elseif(count($clothes) == 4)
                         <div class="container">
                             <div class="row">
-                              <div class="col">Column</div>
-                              <div class="col">Column</div>
-
+                                @foreach($clothes as $item)
+                                <div class="col">
+                                  <div class="product-card2">
+                                      <div class="product-tumb">
+                                          <img src="{{ URL::asset('assets/img/gallery/' . $item->image) }}" alt="">
+                                      </div>
+                                      <div class="product-details">
+                                          <span class="product-catagory">{{ $item['color'] }}</span>
+                                          <h4><a href="">{{ $item['name'] }}</a></h4>
+                                          <br>
+                                          <div class="product-bottom-details">
+                                              <div class="product-price">{{ $item['price'] }}</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                                @endforeach
                             </div>
-                            <div class="row">
-                                <div class="col">Column</div>
-                                <div class="col">Column</div>
-                              </div>
-                          </div>
                         @endif
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
       
