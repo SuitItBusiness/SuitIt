@@ -7,7 +7,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">
-                            <h3 class="fs-4 fs-lg-5 lh-sm mt-5 centrado titulos">Precio total:</h3>
+                            <h3 class="fs-4 fs-lg-5 lh-sm mt-5 centrado titulos">Precio total: {{\App\Models\Wardrobe::where('user_id', Auth::id())->first()->total_price}}€</h3>
                         </div>
                         <div class="col-sm">
                             <h3 class="fs-1 fs-lg-5 lh-sm mt-5 centrado titulos">Armario</h3>

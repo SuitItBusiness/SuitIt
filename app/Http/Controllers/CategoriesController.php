@@ -21,12 +21,6 @@ class CategoriesController extends Controller
 
         $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
         $clothes = $wardrobe->clothes()->where('category_id', $category->id)->get();
-        $totalPrice = 0;
-        foreach ($clothes as $cloth){
-            $totalPrice += $cloth->price * $cloth->pivot->quantity;
-        }
-        $wardrobe->total_price = $totalPrice;
-        $wardrobe->update();
-        return view('armario', @compact('clothes'));
+        return view('wardrobe', @compact('clothes'));
     }
 }

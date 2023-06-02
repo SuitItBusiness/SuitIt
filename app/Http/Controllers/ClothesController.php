@@ -35,7 +35,8 @@ class ClothesController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'comfort_level' => 'required|integer|min:1|max:10',
             'season' => 'required',
-            'category' => 'required'
+            'category' => 'required',
+            'event' => 'required'
         ]);
 
         $errors = $request->has('errors');

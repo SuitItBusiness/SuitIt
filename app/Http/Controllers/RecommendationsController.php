@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Wardrobe;
 use App\Models\Category;
 use App\Models\Event;
+use App\Models\Recommendation;
 use Illuminate\Support\Facades\Auth;
 
 class RecommendationsController extends Controller
@@ -13,11 +14,16 @@ class RecommendationsController extends Controller
     //
     public function makeRecommendation(Request $request){
 
-        $recommendation = [];
+        // Assign recommednation to a user
+        $recommendation = new Recommendation();
+        $recommendation->user_id = Auth::id();
+        $recommendation->save();
+
+        // utility variables
         $categories = Category::all();
         $event = Event::find($request->eventId);
         $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
-        // $clothes = $wardrobe->clothes;
+
         $eventClothes = $event->clothes;
         $eventClothesId = [];
         foreach ($eventClothes as $clt) {
@@ -26,33 +32,36 @@ class RecommendationsController extends Controller
 
         // Add selected article
         $selectedArticle = $wardrobe->clothes()->where('clothes_id', $request->articleId)->first();
-        $recommendation[] = $selectedArticle;
+        $recommendation->clothes()->attach($selectedArticle->id);
 
-        if($selectedArticle->season == 'winter'){
+        if($selectedArticle->season == 'winter'){ //filter for season
             foreach ($categories as $cat) {
-                if($cat->id != $selectedArticle->category_id){
-                    // Añadimos ropa a la recomendacion
-
+                if($cat->id != $selectedArticle->category_id){ // Filter for categories
+                    // Obtain clothes that match with category and event
                     $options = $wardrobe->clothes()->where('category_id', $cat->id)
                     ->where('season', '<>' , 'summer' )
                     ->whereIn('clothes.id', $eventClothesId)->get();
                     $randomOption = rand(0, count($options)-1);
-                    $recommendation[] = $options[$randomOption];
+
+                    // Add clothes to the recommendation
+                    $recommendation->clothes()->attach($options[$randomOption]->id);
                 }
             }
         }else{
             foreach ($categories as $cat) {
-                if($cat->id != $selectedArticle->category_id && $cat->id != 3){
-                    // Añadimos ropa a la recomendacion
-
+                if($cat->id != $selectedArticle->category_id && $cat->id != 3){ // Filter for categories
+                    // Obtain clothes that match with category and event
                     $options = $wardrobe->clothes()->where('category_id', $cat->id)
                     ->whereIn('clothes.id', $eventClothesId)->get();
                     $randomOption = rand(0, count($options)-1);
-                    $recommendation[] = $options[$randomOption];
-            }
+
+                    // Add clothes to the recommendation
+                    $recommendation->clothes()->attach($options[$randomOption]->id);
+                }
             }
         }
 
-        return view('recommendation', @compact('recommendation'));
+        $clothes = $recommendation->clothes;
+        return view('recommendation', @compact('clothes'));
     }
 }

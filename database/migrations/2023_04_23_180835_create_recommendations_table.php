@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('recommendations', function (Blueprint $table) {
             $table->id();
-            $table->float('score');
-            $table->string('comment');
-            $table->string('description');
+            $table->float('score')->nullable();
+            $table->string('comment')->nullable();
+            $table->string('description')->nullable();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });

@@ -60,11 +60,11 @@ class WardrobesController extends Controller
         $clothes = $wardrobe->clothes;
         $totalPrice = 0;
         foreach ($clothes as $cloth){
-            $totalPrice += $cloth->price * $cloth->pivot->quantity;
+            $totalPrice += $cloth->price * 1;
         }
         $wardrobe->total_price = $totalPrice;
         $wardrobe->update();
-        return view('armario', @compact('clothes'));
+        return view('wardrobe', @compact('clothes'));
 
     }
 

@@ -6,9 +6,9 @@
                 <div class="container">
                     <h3 class="fs-1 fs-lg-5 lh-sm centrado titulos">Recomendación</h3>
                     <div class="row">
-                        @if(count($recommendation) == 3)
+                        @if(count($clothes) == 3)
                             <div class="row">
-                                @foreach($recommendation as $item)
+                                @foreach($clothes as $item)
                                     <div class="col">
                                         <div class="js-carousel-cell">
                                             <div class="ag-shop-card_box-wrap">
@@ -24,9 +24,9 @@
                                     </div>
                                 @endforeach
                             </div>
-                        @elseif(count($recommendation) == 4)
+                        @elseif(count($clothes) == 4)
                             <div class="row">
-                                @foreach($recommendation as $item)
+                                @foreach($clothes as $item)
                                     <div class="col">
                                         <div class="js-carousel-cell">
                                             <div class="ag-shop-card_box-wrap">

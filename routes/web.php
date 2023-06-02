@@ -30,8 +30,8 @@ Route::get('/importGeneral', [WardrobesController::class, 'importGeneralArticles
 
 //Armario routes
 
-Route::prefix('armario')->middleware('auth')->group(function () {
-    Route::get('/', [WardrobesController::class, 'showClothesWardrobe'])->name('armario');
+Route::prefix('wardrobe')->middleware('auth')->group(function () {
+    Route::get('/', [WardrobesController::class, 'showClothesWardrobe'])->name('wardrobe');
 
     Route::get('/category/{name}', [CategoriesController::class, 'filterByCategory'])->name('filteredClothes');
     Route::post('/recommendation', [RecommendationsController::class, 'makeRecommendation'])->name('wardrobe.recommendation');
