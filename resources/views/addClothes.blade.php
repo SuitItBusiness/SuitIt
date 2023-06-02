@@ -33,7 +33,7 @@
                                     required>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-3">
                             <div class="col-4 form-group">
                                 <label for="occupation">Temporada:</label>
                                 <select class="form-select" id="season" aria-label="season" name="season" required>
@@ -60,7 +60,7 @@
                             </div>
 
                         </div>
-                        <div class="row">
+                        <div class="row mt-3">
                             <div class="col-6 form-group">
                                 <label for="image">Imagen<span class="text-danger">*</span></label>
                                 <input class="form-control" id="image" type="file" name="image" placeholder="Imagen"
@@ -76,12 +76,18 @@
                             </div>
                         </div>
 
-                        <div id="checkboxes" name="events">
-                            @foreach ($events as $event)
-                                <label class="d-flex py-1 px-3 gap-2" for="{{ $event->name }}">{{ $event->name }}
-                                    <input type="checkbox" id="{{ $event->name }}" name="event[]"
-                                        value="{{ $event->id }}" {{ old('state') == '1' ? 'checked' : '' }}></label>
-                            @endforeach
+                        <div id="checkboxes" class="mt-3" name="events">
+                            <label for="category">Eventos:</label>
+                            <div class="container">
+                                <div class="row">
+                                    @foreach ($events as $event)
+                                  <div class="col-sm">
+                                    <label class="d-flex py-1 px-3 gap-2" for="{{ $event->name }}">{{ $event->name }}
+                                        <input type="checkbox" id="{{ $event->name }}" name="event[]"value="{{ $event->id }}" {{ old('state') == '1' ? 'checked' : '' }}></label>
+                                  </div>
+                                  @endforeach
+                                </div>
+                            </div>
                         </div>
                         <button class="w-100 btn btn-lg btn-primary" type="submit">Añadir</button>
                     </form>
