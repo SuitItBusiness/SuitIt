@@ -22,7 +22,7 @@
                 <div class="hero-section">
                     <div class="carta-grid">
                         @foreach (\App\Models\Category::all() as $category)
-                            <a class="carta" href="armario/category/{{ $category->name }}">
+                            <a class="carta" href="wardrobe/category/{{ $category->name }}">
                                 <div class="carta__background"
                                     style="background-image:url(assets/img/gallery/{{ $category->image }})"></div>
                                 <div class="carta__content">

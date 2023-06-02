@@ -22,6 +22,17 @@
                     <div class="card-body">
                         <form id="profile-form" action="{{ route('profile.update') }}" class="row g-3 needs-validation" method="POST">
                             @csrf
+
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                            
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
                                 <div class="col-md-8">
@@ -133,7 +144,16 @@
                         <form action="{{ route('user-password.update') }}" class="row g-3 needs-validation py-5" method="POST">
                             @method('PUT')
                             @csrf
-    
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+
                             <div class="form-group row">
                                 <label for="current_password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña actual') }}</label>
                                 <div class="col-md-8">
