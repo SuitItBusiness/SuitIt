@@ -9,7 +9,7 @@
     @yield('register')
     @yield('profile')
     @yield('footer')
-
+    
 </body>
 
 </html>
