@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RecommendationsController extends Controller
 {
-    //
+    
     public function makeRecommendation(Request $request){
 
         // Assign recommednation to a user
@@ -74,5 +74,12 @@ class RecommendationsController extends Controller
         $recommendation->delete();
         return back()->with('errors', "No existen suficientes prendas de esa categoría");
     }
+    }
+
+    public function showRecommendations(){
+        // Take all the recommendations from the DB
+        $recommendations = Recommendation::where('user_id', Auth::id())->get();
+
+        return view('recommendationsList', @compact('recommendations'));
     }
 }
