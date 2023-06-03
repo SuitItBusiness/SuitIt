@@ -50,7 +50,6 @@
     </div>
     <!-- End of Page Wrapper -->
     
-    @include('layout.footer')
     @include('layout.js')
 
 </body>

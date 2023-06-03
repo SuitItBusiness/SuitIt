@@ -14,7 +14,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     public function address(){
-        return $this->hasMany(Address::class);
+        return $this->hasOne(Address::class);
     }
 
     public function wardrobe(){
