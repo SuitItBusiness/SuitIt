@@ -7,6 +7,7 @@ use App\Models\Wardrobe;
 use App\Models\Category;
 use App\Models\Event;
 use App\Models\Recommendation;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 
 class RecommendationsController extends Controller
@@ -33,6 +34,9 @@ class RecommendationsController extends Controller
         // Add selected article
         $selectedArticle = $wardrobe->clothes()->where('clothes_id', $request->articleId)->first();
         $recommendation->clothes()->attach($selectedArticle->id);
+
+        try {
+            //code...
 
         if($selectedArticle->season == 'winter'){ //filter for season
             foreach ($categories as $cat) {
@@ -63,5 +67,12 @@ class RecommendationsController extends Controller
 
         $clothes = $recommendation->clothes;
         return view('recommendation', @compact('clothes'));
+
+    } catch (Exception $e) {
+        // if an errors occurs delete the recommendation
+        $recommendation->clothes()->detach();
+        $recommendation->delete();
+        return back()->with('errors', "No existen suficientes prendas de esa categoría");
+    }
     }
 }
