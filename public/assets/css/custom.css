@@ -1,5 +1,4 @@
 
-
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
   
 
@@ -113,18 +112,6 @@
     font-weight: bold;
   }
 
-/* span{
-    font-size: 11px;
-} */
-
-/*
-@media (min-width: 768px)
-{
-    .notify{
-        margin-top: 90px;
-    }
-} */
-
 :root{
     --background-dark: #2d3548;
     --text-light: rgba(255,255,255,0.6);
@@ -229,44 +216,6 @@
     padding-top: 100px;
     padding-bottom: 30px;
     }
-
-    /* This css file is to over write bootstarp css
----------------------------------------------------------------------- */
-
-
-/*
-Theme Name: Modern - Bootstrap 4 Cards
-Theme URI: http://adamthemes.com/
-Author: AdamThemes
-Author URI: http://adamthemes.com/
-Description: Modern - Bootstrap 4 Cards by AdamThemes
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: card, cards, css3, modern, adamthemes, bootstrap, profile
-*---------------------------------------------------------------------- */
-
-
-/*---------------------------------------------------------------------- 
-TABLE OF CONTENTS
-
-// 1. SECTIONS
-// 2. CARDS
-//      2.1 Card Table 
-//      2.1 Card Blog 
-//      2.1 Card Background 
-//      2.1 Card Profile 
-//      2.1 Card Category 
-//      2.1 Card Author 
-//      2.1 Card Product
-//      2.1 Card Testimonial
-//      2.1 Text Color
-// 3. BUTTONS
-// 4. SOCIAL MEDIA BUTTONS
-// 5. BOOTSTRAP COL-MD-12 CLASS
-// 6. FONT AWESOME FA CLASS
-
-------------------------------------------------------------------------*/
 
 
 /*---------------------------------------------------------------------- /
