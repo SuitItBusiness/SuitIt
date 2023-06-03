@@ -28,7 +28,7 @@ Route::get('/', [ClothesController::class, 'showClothes'])->name('index')->middl
 
 Route::get('/importGeneral', [WardrobesController::class, 'importGeneralArticles'])->name('importGeneral')->middleware('auth');
 
-//Armario routes
+//Wardrobe routes
 
 Route::prefix('wardrobe')->middleware('auth')->group(function () {
     Route::get('/', [WardrobesController::class, 'showClothesWardrobe'])->name('wardrobe');
@@ -37,10 +37,9 @@ Route::prefix('wardrobe')->middleware('auth')->group(function () {
     Route::post('/recommendation', [RecommendationsController::class, 'makeRecommendation'])->name('wardrobe.recommendation');
 });
 
+// Recommendation route
 
-Route::get('/recommendation', function () {
-    return view('recommendation');
-})->name('recommendation')->middleware('auth');
+Route::get('/recommendations', [RecommendationsController::class, 'recommendationsList'])->name('recommendationsList')->middleware('auth');
 
 
 //Login y Register routes
