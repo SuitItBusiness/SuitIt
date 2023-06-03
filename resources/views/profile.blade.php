@@ -2,7 +2,7 @@
 
 @section('profile')
 
-<div class="section-gray h-100">
+<div class="h-100">
 
     <div class="container mt-8">
         <ul class="nav nav-tabs">
@@ -16,13 +16,18 @@
                 <a class="nav-link" data-toggle="tab" href="#change-password">{{ __('Cambiar contraseña') }}</a>
             </li>
         </ul>
-        <div class="tab-content mt-4">
+        <div class="tab-content mt-2">
             <div class="tab-pane fade show active" id="personal-info">
                 <div class="card">
                     <div class="card-body">
                         <form id="profile-form" action="{{ route('profile.update') }}" class="row g-3 needs-validation" method="POST">
                             @csrf
 
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                                @endif
                             @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -93,35 +98,35 @@
                             <div class="form-group row">
                                 <label for="way" class="col-md-4 col-form-label text-md-right">{{ __('Calle') }}</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" id="way" type="text" name="way" placeholder="Calle" data-sb-validations="required" value="{{ old('way') }}" required />
+                                    <input class="form-control" id="way" type="text" name="way" data-sb-validations="required" value="{{ isset($user->address->way) ? $user->address->way : '' }}" required />
                                 </div>
                             </div>
             
                             <div class="form-group row">
                                 <label for="number" class="col-md-4 col-form-label text-md-right">{{ __('Número') }}</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" id="number" type="number" name="number" placeholder="Número" data-sb-validations="required" value="{{ old('number') }}" required />
+                                    <input class="form-control" id="number" type="number" name="number" data-sb-validations="required" value="{{ isset($user->address->number) ? $user->address->number : ''}}" required />
                                 </div>
                             </div>
             
                             <div class="form-group row">
                                 <label for="town" class="col-md-4 col-form-label text-md-right">{{ __('Municipio') }}</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" id="town" type="text" name="town" placeholder="Municipio" data-sb-validations="required" value="{{ old('town') }}" required />
+                                    <input class="form-control" id="town" type="text" name="town" data-sb-validations="required" value="{{ isset($user->address->town) ? $user->address->town : ''}}" required />
                                 </div>
                             </div>
             
                             <div class="form-group row">
                                 <label for="province" class="col-md-4 col-form-label text-md-right">{{ __('Provincia') }}</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" id="province" type="text" name="province" placeholder="Provincia" data-sb-validations="required" value="{{ old('province') }}" required />
+                                    <input class="form-control" id="province" type="text" name="province" data-sb-validations="required" value="{{ isset($user->address->province) ? $user->address->province : ''}}" required />
                                 </div>
                             </div>
             
                             <div class="form-group row">
                                 <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('Código Postal') }}</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" id="zipcode" type="text" name="zipcode" placeholder="Código Postal" data-sb-validations="required" value="{{ old('zipcode') }}" required />
+                                    <input class="form-control" id="zipcode" type="text" name="zipcode" data-sb-validations="required" value="{{ isset($user->address->zipcode) ? $user->address->zipcode : ''}}" required />
                                 </div>
                             </div>
             

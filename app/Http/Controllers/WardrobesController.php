@@ -46,12 +46,12 @@ class WardrobesController extends Controller
 
     }
 
-    public function deleteClothes($id)
+    public function deleteClothes(Request $request)
     {
         $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
-        $wardrobe->clothes()->detach($id);
+        $wardrobe->clothes()->detach($request->id);
 
-        return back();
+        return redirect()->route('wardrobe')->with('info', __('Clothe already deletede.'));
     }
 
     public function showClothesWardrobe()

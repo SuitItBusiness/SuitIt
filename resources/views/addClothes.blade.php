@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-4 form-group">
                             <label for="floatingInput">Precio</label>
-                            <input type="number" class="form-control" id="floatingInput" placeholder="" name='price'
+                            <input type="number" class="form-control" id="floatingInput" step="0.01" value="0.00" name='price'
                                 required>
                         </div>
                         <div class="col-4 form-group">
