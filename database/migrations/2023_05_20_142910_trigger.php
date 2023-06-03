@@ -16,6 +16,11 @@ return new class extends Migration
         BEGIN
            INSERT INTO `wardrobes` SET user_id = NEW.id, created_at = NEW.created_at, updated_at = NEW.updated_at;
         END');
+
+        DB::unprepared('CREATE TRIGGER add_address AFTER INSERT ON `USERS` FOR EACH ROW
+        BEGIN
+           INSERT INTO `addresses` SET user_id = NEW.id, created_at = NEW.created_at, updated_at = NEW.updated_at;
+        END');
     }
 
     /**
@@ -26,5 +31,7 @@ return new class extends Migration
     public function down()
     {
         DB::unprepared('DROP TRIGGER `add_wardrobe`');
+
+        DB::unprepared('DROP TRIGGER `add_address`');
     }
 };

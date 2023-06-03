@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.adminmain')
 
 @section('content')
     <!-- Begin Page Content -->
@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <td>ID</td>
@@ -25,8 +25,7 @@
                                 <td>Color</td>
                                 <td>Categoría</td>
                                 <td>Editar</td>
-                                <td>Eliminar</td>
-                        </thead>
+                            </thead>
 
                         </tbody>
                         @foreach ($clothes as $clo)
@@ -41,13 +40,6 @@
                                         <i class="bi bi-pencil"></i>
                                     </button>
                                 </a>
-                            </td>
-                            <td>
-                                <form action="{{ route('admin.table.destroy', $clo->id) }}" method="POST" class="row justify-content-center">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="btn btn-danger" type="submit"><i class="bi bi-trash"></i></button>
-                                </form>
                             </td>
                         </tr>
                     @endforeach
