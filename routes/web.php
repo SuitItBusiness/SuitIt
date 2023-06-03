@@ -40,7 +40,7 @@ Route::prefix('wardrobe')->middleware('auth')->group(function () {
 
 // Recommendation route
 
-Route::get('/recommendations', [RecommendationsController::class, 'recommendationsList'])->name('recommendationsList')->middleware('auth');
+Route::get('/recommendations', [RecommendationsController::class, 'showRecommendations'])->name('recommendationsList')->middleware('auth');
 
 
 //Login y Register routes
