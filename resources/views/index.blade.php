@@ -236,7 +236,7 @@
                     </div>
 
             </div>
-            @extends('layout/footer')
         </div>
     </div>
+    @extends('layout.footer')
 </body>
