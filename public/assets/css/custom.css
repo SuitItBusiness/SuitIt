@@ -1094,7 +1094,7 @@ h6, .h6 {
   }
   .button{
     padding:10px;
-    background:rgb(56, 119, 214);
+    background:#ca8b0a;
     margin:10px;
     display:block;
     text-align:center;
@@ -1108,7 +1108,7 @@ h6, .h6 {
   }
   .button:hover{
     background:#000000;
-    border-bottom:3px solid rgb(56, 119, 214);
+    border-bottom:3px solid rgb(190, 153, 31);
     color:#ffffff;
   }
   @media screen and (max-width: 750px) { 
@@ -1119,7 +1119,7 @@ h6, .h6 {
   .buttonRecommendation{
     border: none;
     padding:10px;
-    background:rgb(56, 119, 214);
+    background:#ca8b0a;
     margin:10px;
     display:block;
     text-align:center;
@@ -1133,7 +1133,7 @@ h6, .h6 {
   }
   .buttonRecommendation:hover{
     background:#000000;
-    border-bottom:3px solid rgb(56, 119, 214);
+    border-bottom:3px solid rgb(190, 153, 31);
     color:#ffffff;
   }
 
