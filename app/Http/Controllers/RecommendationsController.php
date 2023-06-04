@@ -9,13 +9,17 @@ use App\Models\Event;
 use App\Models\Recommendation;
 use Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RecommendationsController extends Controller
 {
     
     public function makeRecommendation(Request $request){
 
-        // Assign recommednation to a user
+        // Start the transaction
+        DB::beginTransaction();
+
+        // Assign recommendation to a user
         $recommendation = new Recommendation();
         $recommendation->user_id = Auth::id();
 
@@ -69,13 +73,14 @@ class RecommendationsController extends Controller
             }
         }
 
+        DB::commit();
+
         $clothes = $recommendation->clothes;
         return view('recommendation', @compact('clothes'));
 
     } catch (Exception $e) {
-        // if an errors occurs delete the recommendation
-        $recommendation->clothes()->detach();
-        $recommendation->delete();
+        // if an errors occurs aborts the transaction
+        DB::rollBack();
         return back()->with('errors', "No existen suficientes prendas de esa categoría");
     }
     }
