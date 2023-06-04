@@ -18,13 +18,17 @@ class RecommendationsController extends Controller
         // Assign recommednation to a user
         $recommendation = new Recommendation();
         $recommendation->user_id = Auth::id();
-        $recommendation->save();
 
-        // utility variables
+        // Utility variables
         $categories = Category::all();
         $event = Event::find($request->eventId);
         $wardrobe = Wardrobe::where('user_id', Auth::id())->first();
 
+        // Assign description to recommendation
+        $recommendation->description = $event->name;
+        $recommendation->save();
+
+        // Search the clothes that match with the event
         $eventClothes = $event->clothes;
         $eventClothesId = [];
         foreach ($eventClothes as $clt) {

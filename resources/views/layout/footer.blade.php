@@ -1,6 +1,7 @@
+      @yield('footer')
       <!-- Footer -->
-      <footer class="py-0 pt-7">
-        <div class="container section-gray mb-5">
+      <footer class="py-0 pt-7 w-100">
+        <div class="section-gray container-fluid">
             <div class="row">
                 <div class="col-6 col-lg-2 mb-3">
                     <h5 class="lh-lg fw-bold text-1000">Información</h5>
@@ -52,19 +53,6 @@
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg><span class="text-800">suitit@gmail.com</span>
                     </p>
-                </div>
-            </div>
-            <div class="border-bottom border-3"></div>
-            <div class="row flex-center my-3">
-                <div class="col-md-6 order-1 order-md-0">
-                    <p class="my-2 text-1000 text-center text-md-start"> Hecho por SUITIT</p>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-center text-md-end"><a href="#!"><span class="me-4"
-                                data-feather="facebook"></span></a><a href="#!"> <span class="me-4"
-                                data-feather="instagram"></span></a><a href="#!"> <span class="me-4"
-                                data-feather="youtube"></span></a><a href="#!"> <span class="me-4"
-                                data-feather="twitter"></span></a></div>
                 </div>
             </div>
         </div>
