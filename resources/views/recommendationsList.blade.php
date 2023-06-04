@@ -6,19 +6,25 @@
         @foreach ($recommendations as $recommendation)
             <div class="container mb-5">
                 <div class="row bg-white border-1 p-2">
+                    <div class="row col-lg-9 col-sm-12 justify-content-between">
+
                     @foreach ($recommendation->clothes as $article)
-                        <div class="col-2 border">
-                            <img src="{{ URL::asset('assets/img/gallery/' . $article->image) }}" width="100%"
+                        <div class="col-3 border border-4 border-dark">
+                            <img src="{{ URL::asset('assets/img/gallery/' . $article->image) }}" class="w-100"
                                 alt="">
                         </div>
                     @endforeach
-                    <div class="col-2 border">
-                        <h3 class="titulos">Evento</h3>
-                        <p class="titulos2 text-center">{{ $recommendation->description }}</p>
+
                     </div>
-                    <div class="col-2 border">
-                        <h3 class="titulos">Fecha</h3>
-                        <p class="titulos2 text-center">{{ $recommendation->created_at }}</p>
+                    <div class="col-lg-3 col-sm-12 row pt-2">
+                        <div class="col-6 col-lg-12">
+                            <h3 class="titulos">Evento</h3>
+                            <p class="text-center">{{ $recommendation->description }}</p>
+                        </div>
+                        <div class="col-6 col-lg-12">
+                            <h3 class="titulos">Fecha</h3>
+                            <p class="text-center">{{ date_format($recommendation->created_at, 'd-m-Y') }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
