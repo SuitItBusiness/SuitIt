@@ -29,7 +29,6 @@
                             <figure>
                                 <img src="{{ URL::asset('assets/img/gallery/' . $ropa->image) }}">
                                 <figcaption class="mx-3 titulo mb-3">{{ $ropa->name }}</figcaption>
-                                <figcaption class="titulo mb-3">{{ $ropa->brand }}</figcaption>
                                 {{-- FORMULARIO PARA RECOMENDACIONES --}}
                                 <form action="{{ route('wardrobe.recommendation') }}" method="POST">
                                     @csrf
